@@ -135,6 +135,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="add_cusForm.Designer.vb">
+      <DependentUpon>add_cusForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="add_cusForm.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="add_supForm.Designer.vb">
+      <DependentUpon>add_supForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="add_supForm.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="main.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +170,24 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="subForm.Designer.vb">
+      <DependentUpon>subForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="subForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="usr_customer.Designer.vb">
+      <DependentUpon>usr_customer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usr_customer.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usr_employee.Designer.vb">
+      <DependentUpon>usr_employee.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usr_employee.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="usr_invoice.Designer.vb">
       <DependentUpon>usr_invoice.vb</DependentUpon>
     </Compile>
@@ -176,8 +206,26 @@
     <Compile Include="usr_order.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="usr_suppliers.Designer.vb">
+      <DependentUpon>usr_suppliers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usr_suppliers.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usr_users.Designer.vb">
+      <DependentUpon>usr_users.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usr_users.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="add_cusForm.resx">
+      <DependentUpon>add_cusForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="add_supForm.resx">
+      <DependentUpon>add_supForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="main.resx">
       <DependentUpon>main.vb</DependentUpon>
     </EmbeddedResource>
@@ -187,6 +235,15 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="subForm.resx">
+      <DependentUpon>subForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usr_customer.resx">
+      <DependentUpon>usr_customer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usr_employee.resx">
+      <DependentUpon>usr_employee.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="usr_inventory.resx">
       <DependentUpon>usr_inventory.vb</DependentUpon>
     </EmbeddedResource>
@@ -195,6 +252,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="usr_order.resx">
       <DependentUpon>usr_order.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usr_suppliers.resx">
+      <DependentUpon>usr_suppliers.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usr_users.resx">
+      <DependentUpon>usr_users.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class usr_invoice
     Inherits System.Windows.Forms.UserControl
 
     'UserControl overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,9 +20,12 @@ Partial Class usr_invoice
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Me.MetroPanel2 = New MetroFramework.Controls.MetroPanel()
+        Me.search_inv = New MetroFramework.Controls.MetroTextBox()
+        Me.btn_addInv = New MetroFramework.Controls.MetroButton()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.invoiceNum = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.invoiceDataIssure = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -31,21 +34,60 @@ Partial Class usr_invoice
         Me.invoiceEmpName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.invoiceProdName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.invoiceRefNum = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.invoiceAction = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MetroPanel2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'MetroPanel2
+        '
+        Me.MetroPanel2.Controls.Add(Me.search_inv)
+        Me.MetroPanel2.Controls.Add(Me.btn_addInv)
+        Me.MetroPanel2.Dock = System.Windows.Forms.DockStyle.Top
+        Me.MetroPanel2.HorizontalScrollbarBarColor = True
+        Me.MetroPanel2.HorizontalScrollbarHighlightOnWheel = False
+        Me.MetroPanel2.HorizontalScrollbarSize = 10
+        Me.MetroPanel2.Location = New System.Drawing.Point(0, 0)
+        Me.MetroPanel2.Name = "MetroPanel2"
+        Me.MetroPanel2.Size = New System.Drawing.Size(756, 37)
+        Me.MetroPanel2.TabIndex = 11
+        Me.MetroPanel2.VerticalScrollbarBarColor = True
+        Me.MetroPanel2.VerticalScrollbarHighlightOnWheel = False
+        Me.MetroPanel2.VerticalScrollbarSize = 10
+        '
+        'search_inv
+        '
+        Me.search_inv.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.search_inv.Location = New System.Drawing.Point(507, 7)
+        Me.search_inv.Name = "search_inv"
+        Me.search_inv.Size = New System.Drawing.Size(240, 23)
+        Me.search_inv.TabIndex = 3
+        Me.search_inv.Text = "Search for invoice"
+        '
+        'btn_addInv
+        '
+        Me.btn_addInv.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btn_addInv.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_addInv.Location = New System.Drawing.Point(3, 3)
+        Me.btn_addInv.Name = "btn_addInv"
+        Me.btn_addInv.Size = New System.Drawing.Size(114, 31)
+        Me.btn_addInv.TabIndex = 2
+        Me.btn_addInv.Text = "ADD INVOICE"
         '
         'DataGridView1
         '
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.invoiceNum, Me.invoiceDataIssure, Me.invoiceTotalAmount, Me.invoiceCusName, Me.invoiceEmpName, Me.invoiceProdName, Me.invoiceRefNum})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.invoiceNum, Me.invoiceDataIssure, Me.invoiceTotalAmount, Me.invoiceCusName, Me.invoiceEmpName, Me.invoiceProdName, Me.invoiceRefNum, Me.invoiceAction})
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
+        Me.DataGridView1.Location = New System.Drawing.Point(0, 37)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(756, 372)
-        Me.DataGridView1.TabIndex = 0
+        Me.DataGridView1.Size = New System.Drawing.Size(756, 335)
+        Me.DataGridView1.TabIndex = 12
         '
         'invoiceNum
         '
@@ -102,18 +144,31 @@ Partial Class usr_invoice
         Me.invoiceRefNum.ReadOnly = True
         Me.invoiceRefNum.Width = 112
         '
+        'invoiceAction
+        '
+        Me.invoiceAction.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.invoiceAction.HeaderText = "Action"
+        Me.invoiceAction.Name = "invoiceAction"
+        Me.invoiceAction.ReadOnly = True
+        Me.invoiceAction.Width = 62
+        '
         'usr_invoice
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.MetroPanel2)
         Me.Name = "usr_invoice"
         Me.Size = New System.Drawing.Size(756, 372)
+        Me.MetroPanel2.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
+    Friend WithEvents MetroPanel2 As MetroFramework.Controls.MetroPanel
+    Friend WithEvents search_inv As MetroFramework.Controls.MetroTextBox
+    Friend WithEvents btn_addInv As MetroFramework.Controls.MetroButton
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents invoiceNum As DataGridViewTextBoxColumn
     Friend WithEvents invoiceDataIssure As DataGridViewTextBoxColumn
@@ -122,4 +177,5 @@ Partial Class usr_invoice
     Friend WithEvents invoiceEmpName As DataGridViewTextBoxColumn
     Friend WithEvents invoiceProdName As DataGridViewTextBoxColumn
     Friend WithEvents invoiceRefNum As DataGridViewTextBoxColumn
+    Friend WithEvents invoiceAction As DataGridViewTextBoxColumn
 End Class

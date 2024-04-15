@@ -29,16 +29,16 @@ Partial Class main
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.closeButton = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btn_employee = New System.Windows.Forms.Label()
+        Me.btn_suppliers = New System.Windows.Forms.Label()
+        Me.btn_customers = New System.Windows.Forms.Label()
+        Me.btn_users = New System.Windows.Forms.Label()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.btn_order = New MetroFramework.Controls.MetroButton()
         Me.btn_inventory = New MetroFramework.Controls.MetroButton()
         Me.btn_invoice = New MetroFramework.Controls.MetroButton()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.mainPanel = New System.Windows.Forms.Panel()
-        Me.btn_users = New System.Windows.Forms.Label()
-        Me.btn_customers = New System.Windows.Forms.Label()
-        Me.btn_suppliers = New System.Windows.Forms.Label()
-        Me.btn_employee = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -102,6 +102,54 @@ Partial Class main
         Me.Panel2.Size = New System.Drawing.Size(932, 36)
         Me.Panel2.TabIndex = 2
         '
+        'btn_employee
+        '
+        Me.btn_employee.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btn_employee.AutoSize = True
+        Me.btn_employee.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_employee.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_employee.Location = New System.Drawing.Point(785, 10)
+        Me.btn_employee.Name = "btn_employee"
+        Me.btn_employee.Size = New System.Drawing.Size(69, 16)
+        Me.btn_employee.TabIndex = 3
+        Me.btn_employee.Text = "Employee"
+        '
+        'btn_suppliers
+        '
+        Me.btn_suppliers.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btn_suppliers.AutoSize = True
+        Me.btn_suppliers.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_suppliers.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_suppliers.Location = New System.Drawing.Point(705, 10)
+        Me.btn_suppliers.Name = "btn_suppliers"
+        Me.btn_suppliers.Size = New System.Drawing.Size(64, 16)
+        Me.btn_suppliers.TabIndex = 2
+        Me.btn_suppliers.Text = "Suppliers"
+        '
+        'btn_customers
+        '
+        Me.btn_customers.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btn_customers.AutoSize = True
+        Me.btn_customers.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_customers.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_customers.Location = New System.Drawing.Point(612, 10)
+        Me.btn_customers.Name = "btn_customers"
+        Me.btn_customers.Size = New System.Drawing.Size(71, 16)
+        Me.btn_customers.TabIndex = 1
+        Me.btn_customers.Text = "Customers"
+        '
+        'btn_users
+        '
+        Me.btn_users.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btn_users.AutoSize = True
+        Me.btn_users.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_users.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_users.Location = New System.Drawing.Point(877, 10)
+        Me.btn_users.Name = "btn_users"
+        Me.btn_users.Size = New System.Drawing.Size(43, 16)
+        Me.btn_users.TabIndex = 0
+        Me.btn_users.Text = "Users"
+        '
         'ContextMenuStrip1
         '
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
@@ -152,54 +200,6 @@ Partial Class main
         Me.mainPanel.Name = "mainPanel"
         Me.mainPanel.Size = New System.Drawing.Size(696, 423)
         Me.mainPanel.TabIndex = 5
-        '
-        'btn_users
-        '
-        Me.btn_users.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btn_users.AutoSize = True
-        Me.btn_users.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btn_users.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_users.Location = New System.Drawing.Point(877, 10)
-        Me.btn_users.Name = "btn_users"
-        Me.btn_users.Size = New System.Drawing.Size(43, 16)
-        Me.btn_users.TabIndex = 0
-        Me.btn_users.Text = "Users"
-        '
-        'btn_customers
-        '
-        Me.btn_customers.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btn_customers.AutoSize = True
-        Me.btn_customers.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btn_customers.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_customers.Location = New System.Drawing.Point(612, 10)
-        Me.btn_customers.Name = "btn_customers"
-        Me.btn_customers.Size = New System.Drawing.Size(71, 16)
-        Me.btn_customers.TabIndex = 1
-        Me.btn_customers.Text = "Customers"
-        '
-        'btn_suppliers
-        '
-        Me.btn_suppliers.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btn_suppliers.AutoSize = True
-        Me.btn_suppliers.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btn_suppliers.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_suppliers.Location = New System.Drawing.Point(705, 10)
-        Me.btn_suppliers.Name = "btn_suppliers"
-        Me.btn_suppliers.Size = New System.Drawing.Size(64, 16)
-        Me.btn_suppliers.TabIndex = 2
-        Me.btn_suppliers.Text = "Suppliers"
-        '
-        'btn_employee
-        '
-        Me.btn_employee.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btn_employee.AutoSize = True
-        Me.btn_employee.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btn_employee.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_employee.Location = New System.Drawing.Point(785, 10)
-        Me.btn_employee.Name = "btn_employee"
-        Me.btn_employee.Size = New System.Drawing.Size(69, 16)
-        Me.btn_employee.TabIndex = 3
-        Me.btn_employee.Text = "Employee"
         '
         'main
         '
