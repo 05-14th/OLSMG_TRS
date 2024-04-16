@@ -1,5 +1,6 @@
-﻿Public Class main
+﻿Public Class main_form
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ConnectToDB()
         load_order_dgv()
     End Sub
     Private Sub closeButton_Click(sender As Object, e As EventArgs) Handles closeButton.Click

@@ -22,6 +22,7 @@ Partial Class usr_customer
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(usr_customer))
         Me.MetroPanel2 = New MetroFramework.Controls.MetroPanel()
         Me.search_cus = New MetroFramework.Controls.MetroTextBox()
         Me.btn_addCus = New MetroFramework.Controls.MetroButton()
@@ -31,7 +32,7 @@ Partial Class usr_customer
         Me.cusFname = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cusMi = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cusCnum = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cusAction = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cusAction = New System.Windows.Forms.DataGridViewImageColumn()
         Me.MetroPanel2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -114,7 +115,7 @@ Partial Class usr_customer
         Me.cusMi.HeaderText = "Middle Initial"
         Me.cusMi.Name = "cusMi"
         Me.cusMi.ReadOnly = True
-        Me.cusMi.Width = 83
+        Me.cusMi.Width = 90
         '
         'cusCnum
         '
@@ -127,8 +128,12 @@ Partial Class usr_customer
         '
         Me.cusAction.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.cusAction.HeaderText = "Action"
+        Me.cusAction.Image = CType(resources.GetObject("cusAction.Image"), System.Drawing.Image)
+        Me.cusAction.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
         Me.cusAction.Name = "cusAction"
         Me.cusAction.ReadOnly = True
+        Me.cusAction.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.cusAction.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.cusAction.Width = 62
         '
         'usr_customer
@@ -154,5 +159,5 @@ Partial Class usr_customer
     Friend WithEvents cusFname As DataGridViewTextBoxColumn
     Friend WithEvents cusMi As DataGridViewTextBoxColumn
     Friend WithEvents cusCnum As DataGridViewTextBoxColumn
-    Friend WithEvents cusAction As DataGridViewTextBoxColumn
+    Friend WithEvents cusAction As DataGridViewImageColumn
 End Class

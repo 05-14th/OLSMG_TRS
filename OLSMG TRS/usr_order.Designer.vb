@@ -29,7 +29,6 @@ Partial Class usr_order
         Me.id_no = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cusName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.prodOrder = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.empName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.invoiceRef = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.orderAction = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MetroPanel2.SuspendLayout()
@@ -79,7 +78,7 @@ Partial Class usr_order
         Me.dgv_order.AllowUserToDeleteRows = False
         Me.dgv_order.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgv_order.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_order.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_no, Me.cusName, Me.prodOrder, Me.empName, Me.invoiceRef, Me.orderAction})
+        Me.dgv_order.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id_no, Me.cusName, Me.prodOrder, Me.invoiceRef, Me.orderAction})
         Me.dgv_order.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgv_order.Location = New System.Drawing.Point(0, 37)
         Me.dgv_order.Name = "dgv_order"
@@ -104,12 +103,6 @@ Partial Class usr_order
         Me.prodOrder.HeaderText = "Product Ordered"
         Me.prodOrder.Name = "prodOrder"
         Me.prodOrder.ReadOnly = True
-        '
-        'empName
-        '
-        Me.empName.HeaderText = "Employee Name"
-        Me.empName.Name = "empName"
-        Me.empName.ReadOnly = True
         '
         'invoiceRef
         '
@@ -145,7 +138,6 @@ Partial Class usr_order
     Friend WithEvents id_no As DataGridViewTextBoxColumn
     Friend WithEvents cusName As DataGridViewTextBoxColumn
     Friend WithEvents prodOrder As DataGridViewTextBoxColumn
-    Friend WithEvents empName As DataGridViewTextBoxColumn
     Friend WithEvents invoiceRef As DataGridViewTextBoxColumn
     Friend WithEvents orderAction As DataGridViewTextBoxColumn
 End Class

@@ -124,7 +124,7 @@ Partial Class add_supForm
         '
         Me.storeProv.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.storeProv.Location = New System.Drawing.Point(17, 218)
-        Me.storeProv.MaxLength = 11
+        Me.storeProv.MaxLength = 255
         Me.storeProv.Name = "storeProv"
         Me.storeProv.Size = New System.Drawing.Size(323, 23)
         Me.storeProv.TabIndex = 11
@@ -173,7 +173,7 @@ Partial Class add_supForm
         '
         Me.storeMuni.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.storeMuni.Location = New System.Drawing.Point(17, 172)
-        Me.storeMuni.MaxLength = 11
+        Me.storeMuni.MaxLength = 255
         Me.storeMuni.Name = "storeMuni"
         Me.storeMuni.Size = New System.Drawing.Size(323, 23)
         Me.storeMuni.TabIndex = 6
@@ -182,7 +182,7 @@ Partial Class add_supForm
         '
         Me.storeBrgy.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.storeBrgy.Location = New System.Drawing.Point(17, 126)
-        Me.storeBrgy.MaxLength = 2
+        Me.storeBrgy.MaxLength = 255
         Me.storeBrgy.Name = "storeBrgy"
         Me.storeBrgy.Size = New System.Drawing.Size(323, 23)
         Me.storeBrgy.TabIndex = 4

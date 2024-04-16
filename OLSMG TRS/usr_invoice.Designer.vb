@@ -23,6 +23,7 @@ Partial Class usr_invoice
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(usr_invoice))
         Me.MetroPanel2 = New MetroFramework.Controls.MetroPanel()
         Me.search_inv = New MetroFramework.Controls.MetroTextBox()
         Me.btn_addInv = New MetroFramework.Controls.MetroButton()
@@ -33,8 +34,9 @@ Partial Class usr_invoice
         Me.invoiceCusName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.invoiceEmpName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.invoiceProdName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.prodPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.invoiceRefNum = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.invoiceAction = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.invoiceAction = New System.Windows.Forms.DataGridViewImageColumn()
         Me.MetroPanel2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -81,7 +83,7 @@ Partial Class usr_invoice
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.invoiceNum, Me.invoiceDataIssure, Me.invoiceTotalAmount, Me.invoiceCusName, Me.invoiceEmpName, Me.invoiceProdName, Me.invoiceRefNum, Me.invoiceAction})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.invoiceNum, Me.invoiceDataIssure, Me.invoiceTotalAmount, Me.invoiceCusName, Me.invoiceEmpName, Me.invoiceProdName, Me.prodPrice, Me.invoiceRefNum, Me.invoiceAction})
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 37)
         Me.DataGridView1.Name = "DataGridView1"
@@ -136,6 +138,12 @@ Partial Class usr_invoice
         Me.invoiceProdName.Name = "invoiceProdName"
         Me.invoiceProdName.ReadOnly = True
         '
+        'prodPrice
+        '
+        Me.prodPrice.HeaderText = "Price"
+        Me.prodPrice.Name = "prodPrice"
+        Me.prodPrice.ReadOnly = True
+        '
         'invoiceRefNum
         '
         Me.invoiceRefNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
@@ -148,8 +156,12 @@ Partial Class usr_invoice
         '
         Me.invoiceAction.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.invoiceAction.HeaderText = "Action"
+        Me.invoiceAction.Image = CType(resources.GetObject("invoiceAction.Image"), System.Drawing.Image)
+        Me.invoiceAction.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
         Me.invoiceAction.Name = "invoiceAction"
         Me.invoiceAction.ReadOnly = True
+        Me.invoiceAction.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.invoiceAction.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.invoiceAction.Width = 62
         '
         'usr_invoice
@@ -176,6 +188,7 @@ Partial Class usr_invoice
     Friend WithEvents invoiceCusName As DataGridViewTextBoxColumn
     Friend WithEvents invoiceEmpName As DataGridViewTextBoxColumn
     Friend WithEvents invoiceProdName As DataGridViewTextBoxColumn
+    Friend WithEvents prodPrice As DataGridViewTextBoxColumn
     Friend WithEvents invoiceRefNum As DataGridViewTextBoxColumn
-    Friend WithEvents invoiceAction As DataGridViewTextBoxColumn
+    Friend WithEvents invoiceAction As DataGridViewImageColumn
 End Class

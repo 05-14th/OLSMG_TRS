@@ -1,4 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports Org.BouncyCastle.Asn1.X500
 Module Module1
     Public cn As New MySqlConnection
     Public cm As New MySqlCommand
@@ -9,18 +10,19 @@ Module Module1
     Public da As MySqlDataAdapter
     Public da1 As MySqlDataAdapter
     Public ds As DataSet
-    Function ConnectToDB() As Boolean
+    Dim mainForm As New main_form
+    Public Sub ConnectToDB()
         Try
             With cn
-                .ConnectionString = "server=localhost; user id=root; password=; database=rcss_db"
+                .ConnectionString = "server=localhost; user id=root; password=; database=olsmg_db"
                 .Open()
             End With
             cn.Close()
-            Return True
+
 
         Catch ex As Exception
-            Return False
+            MsgBox("Database is not connected.", vbOKOnly, "Connection Error")
 
         End Try
-    End Function
+    End Sub
 End Module

@@ -22,6 +22,7 @@ Partial Class usr_employee
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(usr_employee))
         Me.MetroPanel2 = New MetroFramework.Controls.MetroPanel()
         Me.search_emp = New MetroFramework.Controls.MetroTextBox()
         Me.btn_addEmp = New MetroFramework.Controls.MetroButton()
@@ -32,7 +33,7 @@ Partial Class usr_employee
         Me.empMI = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.empCnum = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.empPosition = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.empAction = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.empAction = New System.Windows.Forms.DataGridViewImageColumn()
         Me.MetroPanel2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -137,8 +138,12 @@ Partial Class usr_employee
         '
         Me.empAction.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.empAction.HeaderText = "Action"
+        Me.empAction.Image = CType(resources.GetObject("empAction.Image"), System.Drawing.Image)
+        Me.empAction.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
         Me.empAction.Name = "empAction"
         Me.empAction.ReadOnly = True
+        Me.empAction.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.empAction.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.empAction.Width = 62
         '
         'usr_employee
@@ -165,5 +170,5 @@ Partial Class usr_employee
     Friend WithEvents empMI As DataGridViewTextBoxColumn
     Friend WithEvents empCnum As DataGridViewTextBoxColumn
     Friend WithEvents empPosition As DataGridViewTextBoxColumn
-    Friend WithEvents empAction As DataGridViewTextBoxColumn
+    Friend WithEvents empAction As DataGridViewImageColumn
 End Class

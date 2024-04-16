@@ -141,17 +141,29 @@
     <Compile Include="add_cusForm.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="add_invoiceForm.Designer.vb">
+      <DependentUpon>add_invoiceForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="add_invoiceForm.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="add_supForm.Designer.vb">
       <DependentUpon>add_supForm.vb</DependentUpon>
     </Compile>
     <Compile Include="add_supForm.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="main.vb">
+    <Compile Include="add_userForm.Designer.vb">
+      <DependentUpon>add_userForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="add_userForm.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="main_form.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="main.Designer.vb">
-      <DependentUpon>main.vb</DependentUpon>
+    <Compile Include="main_form.Designer.vb">
+      <DependentUpon>main_form.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Module1.vb" />
@@ -175,6 +187,18 @@
     </Compile>
     <Compile Include="subForm.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="add_empForm.Designer.vb">
+      <DependentUpon>add_empForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="add_empForm.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="add_prodForm.Designer.vb">
+      <DependentUpon>add_prodForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="add_prodForm.vb">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="usr_customer.Designer.vb">
       <DependentUpon>usr_customer.vb</DependentUpon>
@@ -223,11 +247,17 @@
     <EmbeddedResource Include="add_cusForm.resx">
       <DependentUpon>add_cusForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="add_invoiceForm.resx">
+      <DependentUpon>add_invoiceForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="add_supForm.resx">
       <DependentUpon>add_supForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="main.resx">
-      <DependentUpon>main.vb</DependentUpon>
+    <EmbeddedResource Include="add_userForm.resx">
+      <DependentUpon>add_userForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="main_form.resx">
+      <DependentUpon>main_form.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -237,6 +267,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="subForm.resx">
       <DependentUpon>subForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="add_empForm.resx">
+      <DependentUpon>add_empForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="add_prodForm.resx">
+      <DependentUpon>add_prodForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="usr_customer.resx">
       <DependentUpon>usr_customer.vb</DependentUpon>

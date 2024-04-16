@@ -22,6 +22,7 @@ Partial Class usr_suppliers
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(usr_suppliers))
         Me.MetroPanel2 = New MetroFramework.Controls.MetroPanel()
         Me.search_sup = New MetroFramework.Controls.MetroTextBox()
         Me.btn_addSup = New MetroFramework.Controls.MetroButton()
@@ -30,7 +31,7 @@ Partial Class usr_suppliers
         Me.supSname = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.supStoreAdd = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.supPlatform = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.supplierAction = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.supplierAction = New System.Windows.Forms.DataGridViewImageColumn()
         Me.MetroPanel2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -119,8 +120,12 @@ Partial Class usr_suppliers
         '
         Me.supplierAction.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.supplierAction.HeaderText = "Action"
+        Me.supplierAction.Image = CType(resources.GetObject("supplierAction.Image"), System.Drawing.Image)
+        Me.supplierAction.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
         Me.supplierAction.Name = "supplierAction"
         Me.supplierAction.ReadOnly = True
+        Me.supplierAction.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.supplierAction.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.supplierAction.Width = 62
         '
         'usr_suppliers
@@ -145,5 +150,5 @@ Partial Class usr_suppliers
     Friend WithEvents supSname As DataGridViewTextBoxColumn
     Friend WithEvents supStoreAdd As DataGridViewTextBoxColumn
     Friend WithEvents supPlatform As DataGridViewTextBoxColumn
-    Friend WithEvents supplierAction As DataGridViewTextBoxColumn
+    Friend WithEvents supplierAction As DataGridViewImageColumn
 End Class
