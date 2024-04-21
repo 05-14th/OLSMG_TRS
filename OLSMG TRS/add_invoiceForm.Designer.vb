@@ -23,6 +23,7 @@ Partial Class add_invoiceForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.MetroPanel2 = New MetroFramework.Controls.MetroPanel()
+        Me.invDate = New System.Windows.Forms.DateTimePicker()
         Me.invProdName = New MetroFramework.Controls.MetroComboBox()
         Me.invCusName = New MetroFramework.Controls.MetroComboBox()
         Me.invEmpName = New MetroFramework.Controls.MetroComboBox()
@@ -37,7 +38,6 @@ Partial Class add_invoiceForm
         Me.MetroPanel1 = New MetroFramework.Controls.MetroPanel()
         Me.btn_deleteInv = New MetroFramework.Controls.MetroButton()
         Me.btn_invAdd = New MetroFramework.Controls.MetroButton()
-        Me.invDate = New System.Windows.Forms.DateTimePicker()
         Me.MetroPanel2.SuspendLayout()
         Me.MetroPanel1.SuspendLayout()
         Me.SuspendLayout()
@@ -67,6 +67,14 @@ Partial Class add_invoiceForm
         Me.MetroPanel2.VerticalScrollbarBarColor = True
         Me.MetroPanel2.VerticalScrollbarHighlightOnWheel = False
         Me.MetroPanel2.VerticalScrollbarSize = 10
+        '
+        'invDate
+        '
+        Me.invDate.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.invDate.Location = New System.Drawing.Point(18, 61)
+        Me.invDate.Name = "invDate"
+        Me.invDate.Size = New System.Drawing.Size(383, 20)
+        Me.invDate.TabIndex = 18
         '
         'invProdName
         '
@@ -209,14 +217,6 @@ Partial Class add_invoiceForm
         Me.btn_invAdd.Size = New System.Drawing.Size(100, 23)
         Me.btn_invAdd.TabIndex = 2
         Me.btn_invAdd.Text = "CONFIRM"
-        '
-        'invDate
-        '
-        Me.invDate.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.invDate.Location = New System.Drawing.Point(18, 61)
-        Me.invDate.Name = "invDate"
-        Me.invDate.Size = New System.Drawing.Size(383, 20)
-        Me.invDate.TabIndex = 18
         '
         'add_invoiceForm
         '

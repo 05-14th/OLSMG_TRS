@@ -7,6 +7,8 @@ Public Class usr_suppliers
     Inherits UserControl
     Dim addSup As New subForm()
     Dim supForm As New add_supForm
+    Dim editSup As New subForm()
+    Dim editSupForm As New add_supForm
     Dim fullAddress As String
 
     Sub LoadSup()
@@ -22,9 +24,8 @@ Public Class usr_suppliers
                 i += 1
                 fullAddress = $"{dr.Item("street").ToString}, {dr.Item("barangay").ToString}, {dr.Item("municipality").ToString}, {dr.Item("province").ToString}, {dr.Item("zip_code").ToString}"
                 DataGridView1.Rows.Add(i, dr.Item("store_name").ToString, fullAddress, dr.Item("platform").ToString)
-
+                DataGridView1.Sort(DataGridView1.Columns(0), System.ComponentModel.ListSortDirection.Ascending)
             End While
-            DataGridView1.Sort(DataGridView1.Columns(1), System.ComponentModel.ListSortDirection.Ascending)
             dr.Close()
             cn.Close()
         Catch ex As Exception
@@ -87,4 +88,40 @@ Public Class usr_suppliers
         LoadTableData($"SELECT * FROM olsmg_supplier a JOIN olsmg_address b ON a.store_address_ref = b.address_num WHERE store_name LIKE '%{search_sup.Text}%' OR platform LIKE '%{search_sup.Text}%'")
     End Sub
 
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+        If e.ColumnIndex = DataGridView1.Columns.Count - 1 AndAlso e.RowIndex >= 0 Then
+            Dim firstCellValue As String = DataGridView1.Rows(e.RowIndex).Cells(1).Value.ToString()
+            Dim thirdCellValue As String = DataGridView1.Rows(e.RowIndex).Cells(3).Value.ToString()
+            Try
+                cn.Open()
+                cm = New MySqlCommand($"SELECT * FROM olsmg_supplier a JOIN olsmg_address b ON a.store_address_ref = b.address_num WHERE store_name = '{firstCellValue}' AND platform = '{thirdCellValue}'", cn)
+                dr = cm.ExecuteReader
+
+                If dr.Read() Then
+                    editSupForm.storeName.Text = dr.Item("store_name").ToString()
+                    editSupForm.storeStreet.Text = dr.Item("street").ToString()
+                    editSupForm.storeBrgy.Text = dr.Item("barangay").ToString()
+                    editSupForm.storeMuni.Text = dr.Item("municipality").ToString()
+                    editSupForm.storeProv.Text = dr.Item("province").ToString()
+                    editSupForm.storeZip.Text = dr.Item("zip_code").ToString()
+                    editSupForm.storePlat.Text = dr.Item("platform").ToString()
+                    editSupForm.mode = 1
+                    editSupForm.store_name = firstCellValue
+                    editSupForm.store_platform = thirdCellValue
+                    'editSupForm.prodName.Enabled = False
+                    editSup.subForm_panel.Controls.Clear()
+                    editSup.Size = New Size(400, 500)
+                    editSupForm.Dock = DockStyle.Fill
+                    editSup.subForm_panel.Controls.Add(editSupForm)
+                    editSup.ShowDialog()
+                Else
+                    MessageBox.Show("No data found for the selected product.")
+                End If
+                dr.Close()
+                cn.Close()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End If
+    End Sub
 End Class

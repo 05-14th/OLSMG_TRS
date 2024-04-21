@@ -201,7 +201,7 @@ Partial Class main_form
         Me.mainPanel.Size = New System.Drawing.Size(696, 423)
         Me.mainPanel.TabIndex = 5
         '
-        'main
+        'main_form
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -213,7 +213,7 @@ Partial Class main_form
         Me.Controls.Add(Me.Panel1)
         Me.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "main"
+        Me.Name = "main_form"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
@@ -236,9 +236,9 @@ Partial Class main_form
     Friend WithEvents btn_inventory As MetroFramework.Controls.MetroButton
     Friend WithEvents btn_invoice As MetroFramework.Controls.MetroButton
     Friend WithEvents Panel3 As Panel
-    Friend WithEvents mainPanel As Panel
     Friend WithEvents btn_users As Label
     Friend WithEvents btn_suppliers As Label
     Friend WithEvents btn_customers As Label
     Friend WithEvents btn_employee As Label
+    Friend WithEvents mainPanel As Panel
 End Class

@@ -81,6 +81,7 @@ Partial Class usr_employee
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.empNum, Me.empLname, Me.empFname, Me.empMI, Me.empCnum, Me.empPosition, Me.empAction})
+        Me.DataGridView1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 37)
         Me.DataGridView1.Name = "DataGridView1"
@@ -116,7 +117,7 @@ Partial Class usr_employee
         Me.empMI.HeaderText = "Middle Initial"
         Me.empMI.Name = "empMI"
         Me.empMI.ReadOnly = True
-        Me.empMI.Width = 90
+        Me.empMI.Width = 83
         '
         'empCnum
         '

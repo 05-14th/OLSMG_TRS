@@ -30,10 +30,10 @@ Partial Class add_cusForm
         Me.MetroLabel4 = New MetroFramework.Controls.MetroLabel()
         Me.MetroLabel3 = New MetroFramework.Controls.MetroLabel()
         Me.MetroLabel2 = New MetroFramework.Controls.MetroLabel()
-        Me.MetroTextBox4 = New MetroFramework.Controls.MetroTextBox()
-        Me.MetroTextBox3 = New MetroFramework.Controls.MetroTextBox()
-        Me.MetroTextBox2 = New MetroFramework.Controls.MetroTextBox()
-        Me.MetroTextBox1 = New MetroFramework.Controls.MetroTextBox()
+        Me.c_cn = New MetroFramework.Controls.MetroTextBox()
+        Me.c_mi = New MetroFramework.Controls.MetroTextBox()
+        Me.c_fname = New MetroFramework.Controls.MetroTextBox()
+        Me.c_lname = New MetroFramework.Controls.MetroTextBox()
         Me.MetroPanel1.SuspendLayout()
         Me.MetroPanel2.SuspendLayout()
         Me.SuspendLayout()
@@ -78,10 +78,10 @@ Partial Class add_cusForm
         Me.MetroPanel2.Controls.Add(Me.MetroLabel4)
         Me.MetroPanel2.Controls.Add(Me.MetroLabel3)
         Me.MetroPanel2.Controls.Add(Me.MetroLabel2)
-        Me.MetroPanel2.Controls.Add(Me.MetroTextBox4)
-        Me.MetroPanel2.Controls.Add(Me.MetroTextBox3)
-        Me.MetroPanel2.Controls.Add(Me.MetroTextBox2)
-        Me.MetroPanel2.Controls.Add(Me.MetroTextBox1)
+        Me.MetroPanel2.Controls.Add(Me.c_cn)
+        Me.MetroPanel2.Controls.Add(Me.c_mi)
+        Me.MetroPanel2.Controls.Add(Me.c_fname)
+        Me.MetroPanel2.Controls.Add(Me.c_lname)
         Me.MetroPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.MetroPanel2.HorizontalScrollbarBarColor = True
         Me.MetroPanel2.HorizontalScrollbarHighlightOnWheel = False
@@ -134,41 +134,41 @@ Partial Class add_cusForm
         Me.MetroLabel2.TabIndex = 7
         Me.MetroLabel2.Text = "Last Name"
         '
-        'MetroTextBox4
+        'c_cn
         '
-        Me.MetroTextBox4.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.MetroTextBox4.Location = New System.Drawing.Point(17, 165)
-        Me.MetroTextBox4.MaxLength = 11
-        Me.MetroTextBox4.Name = "MetroTextBox4"
-        Me.MetroTextBox4.Size = New System.Drawing.Size(288, 23)
-        Me.MetroTextBox4.TabIndex = 6
+        Me.c_cn.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.c_cn.Location = New System.Drawing.Point(17, 165)
+        Me.c_cn.MaxLength = 11
+        Me.c_cn.Name = "c_cn"
+        Me.c_cn.Size = New System.Drawing.Size(288, 23)
+        Me.c_cn.TabIndex = 6
         '
-        'MetroTextBox3
+        'c_mi
         '
-        Me.MetroTextBox3.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.MetroTextBox3.Location = New System.Drawing.Point(17, 119)
-        Me.MetroTextBox3.MaxLength = 2
-        Me.MetroTextBox3.Name = "MetroTextBox3"
-        Me.MetroTextBox3.Size = New System.Drawing.Size(288, 23)
-        Me.MetroTextBox3.TabIndex = 4
+        Me.c_mi.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.c_mi.Location = New System.Drawing.Point(17, 119)
+        Me.c_mi.MaxLength = 2
+        Me.c_mi.Name = "c_mi"
+        Me.c_mi.Size = New System.Drawing.Size(288, 23)
+        Me.c_mi.TabIndex = 4
         '
-        'MetroTextBox2
+        'c_fname
         '
-        Me.MetroTextBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.MetroTextBox2.Location = New System.Drawing.Point(17, 73)
-        Me.MetroTextBox2.MaxLength = 255
-        Me.MetroTextBox2.Name = "MetroTextBox2"
-        Me.MetroTextBox2.Size = New System.Drawing.Size(288, 23)
-        Me.MetroTextBox2.TabIndex = 3
+        Me.c_fname.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.c_fname.Location = New System.Drawing.Point(17, 73)
+        Me.c_fname.MaxLength = 255
+        Me.c_fname.Name = "c_fname"
+        Me.c_fname.Size = New System.Drawing.Size(288, 23)
+        Me.c_fname.TabIndex = 3
         '
-        'MetroTextBox1
+        'c_lname
         '
-        Me.MetroTextBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.MetroTextBox1.Location = New System.Drawing.Point(17, 26)
-        Me.MetroTextBox1.MaxLength = 255
-        Me.MetroTextBox1.Name = "MetroTextBox1"
-        Me.MetroTextBox1.Size = New System.Drawing.Size(288, 23)
-        Me.MetroTextBox1.TabIndex = 2
+        Me.c_lname.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.c_lname.Location = New System.Drawing.Point(17, 26)
+        Me.c_lname.MaxLength = 255
+        Me.c_lname.Name = "c_lname"
+        Me.c_lname.Size = New System.Drawing.Size(288, 23)
+        Me.c_lname.TabIndex = 2
         '
         'add_cusForm
         '
@@ -193,8 +193,8 @@ Partial Class add_cusForm
     Friend WithEvents MetroLabel4 As MetroFramework.Controls.MetroLabel
     Friend WithEvents MetroLabel3 As MetroFramework.Controls.MetroLabel
     Friend WithEvents MetroLabel2 As MetroFramework.Controls.MetroLabel
-    Friend WithEvents MetroTextBox4 As MetroFramework.Controls.MetroTextBox
-    Friend WithEvents MetroTextBox3 As MetroFramework.Controls.MetroTextBox
-    Friend WithEvents MetroTextBox2 As MetroFramework.Controls.MetroTextBox
-    Friend WithEvents MetroTextBox1 As MetroFramework.Controls.MetroTextBox
+    Friend WithEvents c_cn As MetroFramework.Controls.MetroTextBox
+    Friend WithEvents c_mi As MetroFramework.Controls.MetroTextBox
+    Friend WithEvents c_fname As MetroFramework.Controls.MetroTextBox
+    Friend WithEvents c_lname As MetroFramework.Controls.MetroTextBox
 End Class

@@ -22,7 +22,7 @@ Partial Class usr_inventory
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(usr_inventory))
         Me.MetroPanel2 = New MetroFramework.Controls.MetroPanel()
         Me.search_prod = New MetroFramework.Controls.MetroTextBox()
@@ -83,6 +83,7 @@ Partial Class usr_inventory
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.invNumber, Me.invProduct, Me.prodSize, Me.prodColor, Me.invProdPrice, Me.invSupplier, Me.invAction})
+        Me.DataGridView1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 37)
         Me.DataGridView1.Name = "DataGridView1"
@@ -124,8 +125,8 @@ Partial Class usr_inventory
         'invProdPrice
         '
         Me.invProdPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        Me.invProdPrice.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        Me.invProdPrice.DefaultCellStyle = DataGridViewCellStyle2
         Me.invProdPrice.HeaderText = "Price"
         Me.invProdPrice.Name = "invProdPrice"
         Me.invProdPrice.ReadOnly = True

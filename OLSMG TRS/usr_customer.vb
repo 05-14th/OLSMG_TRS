@@ -4,6 +4,8 @@ Public Class usr_customer
     Inherits UserControl
     Dim addCus As New subForm()
     Dim cusForm As New add_cusForm
+    Dim editCus As New subForm()
+    Dim editCusForm As New add_cusForm
 
     Sub LoadCus()
         Try
@@ -17,9 +19,9 @@ Public Class usr_customer
             While dr.Read
                 i += 1
                 DataGridView1.Rows.Add(i, dr.Item("c_lname").ToString, dr.Item("c_fname").ToString, dr.Item("c_mi").ToString, dr.Item("c_cnum").ToString)
-
+                DataGridView1.Sort(DataGridView1.Columns(0), System.ComponentModel.ListSortDirection.Ascending)
             End While
-            DataGridView1.Sort(DataGridView1.Columns(1), System.ComponentModel.ListSortDirection.Ascending)
+
             dr.Close()
             cn.Close()
         Catch ex As Exception
@@ -44,6 +46,8 @@ Public Class usr_customer
         addCus.subForm_panel.Controls.Clear()
         addCus.Size = New Size(400, 500)
         cusForm.Dock = DockStyle.Fill
+        cusForm.mode = 0
+        cusForm.btn_deleteCus.Enabled = False
         addCus.subForm_panel.Controls.Add(cusForm)
         addCus.ShowDialog()
     End Sub
@@ -79,5 +83,42 @@ Public Class usr_customer
 
     Private Sub search_TextChanged(sender As Object, e As EventArgs) Handles search_cus.TextChanged
         LoadTableData($"SELECT * FROM olsmg_customer WHERE c_lname LIKE '%{search_cus.Text}%' OR c_fname LIKE '%{search_cus.Text}%'")
+    End Sub
+
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+        If e.ColumnIndex = DataGridView1.Columns.Count - 1 AndAlso e.RowIndex >= 0 Then
+            Dim firstCellValue As String = DataGridView1.Rows(e.RowIndex).Cells(1).Value.ToString()
+            Dim secondCellValue As String = DataGridView1.Rows(e.RowIndex).Cells(2).Value.ToString()
+            Dim thirdCellValue As String = DataGridView1.Rows(e.RowIndex).Cells(3).Value.ToString()
+
+            Try
+                cn.Open()
+                cm = New MySqlCommand($"SELECT * FROM olsmg_customer WHERE c_lname = '{firstCellValue}' AND c_fname='{secondCellValue}' AND c_mi='{thirdCellValue}'", cn)
+                dr = cm.ExecuteReader
+
+                If dr.Read() Then
+                    editCusForm.c_lname.Text = dr.Item("c_lname").ToString()
+                    editCusForm.c_fname.Text = dr.Item("c_fname").ToString()
+                    editCusForm.c_mi.Text = dr.Item("c_mi").ToString()
+                    editCusForm.c_cn.Text = dr.Item("c_cnum").ToString()
+                    editCusForm.mode = 1
+                    editCusForm.Lname = firstCellValue
+                    editCusForm.Fname = secondCellValue
+                    editCusForm.Minit = thirdCellValue
+
+                    editCus.subForm_panel.Controls.Clear()
+                    editCus.Size = New Size(400, 500)
+                    editCusForm.Dock = DockStyle.Fill
+                    editCus.subForm_panel.Controls.Add(editCusForm)
+                    editCus.ShowDialog()
+                Else
+                    MessageBox.Show("No data found for the selected product.")
+                End If
+                dr.Close()
+                cn.Close()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End If
     End Sub
 End Class
