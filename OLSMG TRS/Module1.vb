@@ -18,11 +18,10 @@ Module Module1
                 .Open()
             End With
             cn.Close()
-
-
         Catch ex As Exception
-            MsgBox("Database is not connected.", vbOKOnly, "Connection Error")
-
+            'MsgBox($"{ex.Message}", vbOKOnly, "Connection Error")
+        Finally
+            cn.Close()
         End Try
     End Sub
 End Module

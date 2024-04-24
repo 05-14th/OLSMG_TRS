@@ -105,7 +105,7 @@ Partial Class usr_invoice
         Me.invoiceDataIssure.HeaderText = "Date Issue"
         Me.invoiceDataIssure.Name = "invoiceDataIssure"
         Me.invoiceDataIssure.ReadOnly = True
-        Me.invoiceDataIssure.Width = 83
+        Me.invoiceDataIssure.Width = 77
         '
         'invoiceTotalAmount
         '
@@ -115,7 +115,7 @@ Partial Class usr_invoice
         Me.invoiceTotalAmount.HeaderText = "Total Amount"
         Me.invoiceTotalAmount.Name = "invoiceTotalAmount"
         Me.invoiceTotalAmount.ReadOnly = True
-        Me.invoiceTotalAmount.Width = 95
+        Me.invoiceTotalAmount.Width = 88
         '
         'invoiceCusName
         '

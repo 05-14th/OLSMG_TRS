@@ -4,7 +4,12 @@
         load_order_dgv()
     End Sub
     Private Sub closeButton_Click(sender As Object, e As EventArgs) Handles closeButton.Click
-        Me.Dispose()
+        Dim intResponse As Integer
+        intResponse = MsgBox("Are you sure you want to exit?", vbYesNo + vbQuestion, "Exiting Application")
+        If intResponse = vbYes Then
+            Me.Dispose()
+            login_form.Dispose()
+        End If
     End Sub
 
     Private Sub load_order_dgv()
@@ -81,5 +86,11 @@
 
     Private Sub btn_users_Click(sender As Object, e As EventArgs) Handles btn_users.Click
         load_users_dgv()
+    End Sub
+
+    Public Sub LoginAsEmployee()
+        btn_users.Enabled = False
+        btn_employee.Enabled = False
+        btn_suppliers.Enabled = False
     End Sub
 End Class

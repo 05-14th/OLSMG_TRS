@@ -44,7 +44,6 @@ Partial Class add_invoiceForm
         '
         'MetroPanel2
         '
-        Me.MetroPanel2.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.MetroPanel2.Controls.Add(Me.invDate)
         Me.MetroPanel2.Controls.Add(Me.invProdName)
         Me.MetroPanel2.Controls.Add(Me.invCusName)
@@ -57,6 +56,7 @@ Partial Class add_invoiceForm
         Me.MetroPanel2.Controls.Add(Me.MetroLabel3)
         Me.MetroPanel2.Controls.Add(Me.MetroLabel2)
         Me.MetroPanel2.Controls.Add(Me.invTotalAmount)
+        Me.MetroPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.MetroPanel2.HorizontalScrollbarBarColor = True
         Me.MetroPanel2.HorizontalScrollbarHighlightOnWheel = False
         Me.MetroPanel2.HorizontalScrollbarSize = 10
@@ -71,7 +71,7 @@ Partial Class add_invoiceForm
         'invDate
         '
         Me.invDate.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.invDate.Location = New System.Drawing.Point(18, 61)
+        Me.invDate.Location = New System.Drawing.Point(18, 63)
         Me.invDate.Name = "invDate"
         Me.invDate.Size = New System.Drawing.Size(383, 20)
         Me.invDate.TabIndex = 18
@@ -81,7 +81,7 @@ Partial Class add_invoiceForm
         Me.invProdName.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.invProdName.FormattingEnabled = True
         Me.invProdName.ItemHeight = 23
-        Me.invProdName.Location = New System.Drawing.Point(18, 258)
+        Me.invProdName.Location = New System.Drawing.Point(18, 260)
         Me.invProdName.Name = "invProdName"
         Me.invProdName.Size = New System.Drawing.Size(383, 29)
         Me.invProdName.TabIndex = 17
@@ -91,7 +91,7 @@ Partial Class add_invoiceForm
         Me.invCusName.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.invCusName.FormattingEnabled = True
         Me.invCusName.ItemHeight = 23
-        Me.invCusName.Location = New System.Drawing.Point(18, 153)
+        Me.invCusName.Location = New System.Drawing.Point(18, 155)
         Me.invCusName.Name = "invCusName"
         Me.invCusName.Size = New System.Drawing.Size(383, 29)
         Me.invCusName.TabIndex = 16
@@ -101,7 +101,7 @@ Partial Class add_invoiceForm
         Me.invEmpName.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.invEmpName.FormattingEnabled = True
         Me.invEmpName.ItemHeight = 23
-        Me.invEmpName.Location = New System.Drawing.Point(18, 204)
+        Me.invEmpName.Location = New System.Drawing.Point(18, 206)
         Me.invEmpName.Name = "invEmpName"
         Me.invEmpName.Size = New System.Drawing.Size(383, 29)
         Me.invEmpName.TabIndex = 15
@@ -110,7 +110,7 @@ Partial Class add_invoiceForm
         '
         Me.MetroLabel6.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.MetroLabel6.AutoSize = True
-        Me.MetroLabel6.Location = New System.Drawing.Point(17, 290)
+        Me.MetroLabel6.Location = New System.Drawing.Point(17, 292)
         Me.MetroLabel6.Name = "MetroLabel6"
         Me.MetroLabel6.Size = New System.Drawing.Size(120, 19)
         Me.MetroLabel6.TabIndex = 14
@@ -119,7 +119,7 @@ Partial Class add_invoiceForm
         'invRefNum
         '
         Me.invRefNum.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.invRefNum.Location = New System.Drawing.Point(18, 312)
+        Me.invRefNum.Location = New System.Drawing.Point(18, 314)
         Me.invRefNum.MaxLength = 255
         Me.invRefNum.Name = "invRefNum"
         Me.invRefNum.Size = New System.Drawing.Size(383, 23)
@@ -129,7 +129,7 @@ Partial Class add_invoiceForm
         '
         Me.MetroLabel1.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.MetroLabel1.AutoSize = True
-        Me.MetroLabel1.Location = New System.Drawing.Point(18, 236)
+        Me.MetroLabel1.Location = New System.Drawing.Point(18, 238)
         Me.MetroLabel1.Name = "MetroLabel1"
         Me.MetroLabel1.Size = New System.Drawing.Size(95, 19)
         Me.MetroLabel1.TabIndex = 12
@@ -139,7 +139,7 @@ Partial Class add_invoiceForm
         '
         Me.MetroLabel5.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.MetroLabel5.AutoSize = True
-        Me.MetroLabel5.Location = New System.Drawing.Point(17, 182)
+        Me.MetroLabel5.Location = New System.Drawing.Point(17, 184)
         Me.MetroLabel5.Name = "MetroLabel5"
         Me.MetroLabel5.Size = New System.Drawing.Size(107, 19)
         Me.MetroLabel5.TabIndex = 10
@@ -149,7 +149,7 @@ Partial Class add_invoiceForm
         '
         Me.MetroLabel4.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.MetroLabel4.AutoSize = True
-        Me.MetroLabel4.Location = New System.Drawing.Point(17, 131)
+        Me.MetroLabel4.Location = New System.Drawing.Point(17, 133)
         Me.MetroLabel4.Name = "MetroLabel4"
         Me.MetroLabel4.Size = New System.Drawing.Size(106, 19)
         Me.MetroLabel4.TabIndex = 9
@@ -159,7 +159,7 @@ Partial Class add_invoiceForm
         '
         Me.MetroLabel3.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.MetroLabel3.AutoSize = True
-        Me.MetroLabel3.Location = New System.Drawing.Point(17, 84)
+        Me.MetroLabel3.Location = New System.Drawing.Point(17, 86)
         Me.MetroLabel3.Name = "MetroLabel3"
         Me.MetroLabel3.Size = New System.Drawing.Size(87, 19)
         Me.MetroLabel3.TabIndex = 8
@@ -169,7 +169,7 @@ Partial Class add_invoiceForm
         '
         Me.MetroLabel2.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.MetroLabel2.AutoSize = True
-        Me.MetroLabel2.Location = New System.Drawing.Point(17, 36)
+        Me.MetroLabel2.Location = New System.Drawing.Point(17, 38)
         Me.MetroLabel2.Name = "MetroLabel2"
         Me.MetroLabel2.Size = New System.Drawing.Size(67, 19)
         Me.MetroLabel2.TabIndex = 7
@@ -178,7 +178,7 @@ Partial Class add_invoiceForm
         'invTotalAmount
         '
         Me.invTotalAmount.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.invTotalAmount.Location = New System.Drawing.Point(18, 105)
+        Me.invTotalAmount.Location = New System.Drawing.Point(18, 107)
         Me.invTotalAmount.MaxLength = 11
         Me.invTotalAmount.Name = "invTotalAmount"
         Me.invTotalAmount.Size = New System.Drawing.Size(383, 23)

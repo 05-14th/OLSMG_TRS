@@ -34,6 +34,8 @@ Partial Class add_cusForm
         Me.c_mi = New MetroFramework.Controls.MetroTextBox()
         Me.c_fname = New MetroFramework.Controls.MetroTextBox()
         Me.c_lname = New MetroFramework.Controls.MetroTextBox()
+        Me.MetroLabel1 = New MetroFramework.Controls.MetroLabel()
+        Me.emailText = New MetroFramework.Controls.MetroTextBox()
         Me.MetroPanel1.SuspendLayout()
         Me.MetroPanel2.SuspendLayout()
         Me.SuspendLayout()
@@ -74,6 +76,8 @@ Partial Class add_cusForm
         '
         'MetroPanel2
         '
+        Me.MetroPanel2.Controls.Add(Me.MetroLabel1)
+        Me.MetroPanel2.Controls.Add(Me.emailText)
         Me.MetroPanel2.Controls.Add(Me.MetroLabel5)
         Me.MetroPanel2.Controls.Add(Me.MetroLabel4)
         Me.MetroPanel2.Controls.Add(Me.MetroLabel3)
@@ -170,6 +174,25 @@ Partial Class add_cusForm
         Me.c_lname.Size = New System.Drawing.Size(288, 23)
         Me.c_lname.TabIndex = 2
         '
+        'MetroLabel1
+        '
+        Me.MetroLabel1.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.MetroLabel1.AutoSize = True
+        Me.MetroLabel1.Location = New System.Drawing.Point(17, 192)
+        Me.MetroLabel1.Name = "MetroLabel1"
+        Me.MetroLabel1.Size = New System.Drawing.Size(41, 19)
+        Me.MetroLabel1.TabIndex = 12
+        Me.MetroLabel1.Text = "Email"
+        '
+        'emailText
+        '
+        Me.emailText.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.emailText.Location = New System.Drawing.Point(17, 212)
+        Me.emailText.MaxLength = 255
+        Me.emailText.Name = "emailText"
+        Me.emailText.Size = New System.Drawing.Size(288, 23)
+        Me.emailText.TabIndex = 11
+        '
         'add_cusForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -197,4 +220,6 @@ Partial Class add_cusForm
     Friend WithEvents c_mi As MetroFramework.Controls.MetroTextBox
     Friend WithEvents c_fname As MetroFramework.Controls.MetroTextBox
     Friend WithEvents c_lname As MetroFramework.Controls.MetroTextBox
+    Friend WithEvents MetroLabel1 As MetroFramework.Controls.MetroLabel
+    Friend WithEvents emailText As MetroFramework.Controls.MetroTextBox
 End Class

@@ -6,4 +6,8 @@
     Private Sub btn_addOrder_Click(sender As Object, e As EventArgs) Handles btn_addOrder.Click
 
     End Sub
+
+    Private Sub search_order_Click(sender As Object, e As EventArgs) Handles search_order.Click
+
+    End Sub
 End Class

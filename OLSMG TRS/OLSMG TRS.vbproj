@@ -159,6 +159,12 @@
     <Compile Include="add_userForm.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="login_form.Designer.vb">
+      <DependentUpon>login_form.vb</DependentUpon>
+    </Compile>
+    <Compile Include="login_form.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="main_form.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +177,7 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -230,6 +237,18 @@
     <Compile Include="usr_order.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="usr_regsForm.Designer.vb">
+      <DependentUpon>usr_regsForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usr_regsForm.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usr_signin.Designer.vb">
+      <DependentUpon>usr_signin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usr_signin.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="usr_suppliers.Designer.vb">
       <DependentUpon>usr_suppliers.vb</DependentUpon>
     </Compile>
@@ -255,6 +274,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="add_userForm.resx">
       <DependentUpon>add_userForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="login_form.resx">
+      <DependentUpon>login_form.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="main_form.resx">
       <DependentUpon>main_form.vb</DependentUpon>
@@ -288,6 +310,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="usr_order.resx">
       <DependentUpon>usr_order.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usr_regsForm.resx">
+      <DependentUpon>usr_regsForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usr_signin.resx">
+      <DependentUpon>usr_signin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="usr_suppliers.resx">
       <DependentUpon>usr_suppliers.vb</DependentUpon>

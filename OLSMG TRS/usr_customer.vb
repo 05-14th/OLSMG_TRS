@@ -18,7 +18,7 @@ Public Class usr_customer
             dr = cm.ExecuteReader
             While dr.Read
                 i += 1
-                DataGridView1.Rows.Add(i, dr.Item("c_lname").ToString, dr.Item("c_fname").ToString, dr.Item("c_mi").ToString, dr.Item("c_cnum").ToString)
+                DataGridView1.Rows.Add(i, dr.Item("c_lname").ToString, dr.Item("c_fname").ToString, dr.Item("c_mi").ToString, dr.Item("c_cnum").ToString, dr.Item("c_email").ToString)
                 DataGridView1.Sort(DataGridView1.Columns(0), System.ComponentModel.ListSortDirection.Ascending)
             End While
 
@@ -61,7 +61,7 @@ Public Class usr_customer
             dr = cm.ExecuteReader
             While dr.Read
                 i += 1
-                DataGridView1.Rows.Add(i, dr.Item("c_lname").ToString, dr.Item("c_fname").ToString, dr.Item("c_mi").ToString, dr.Item("c_cnum").ToString)
+                DataGridView1.Rows.Add(i, dr.Item("c_lname").ToString, dr.Item("c_fname").ToString, dr.Item("c_mi").ToString, dr.Item("c_cnum").ToString, dr.Item("c_email").ToString)
             End While
             dr.Close()
             cn.Close()
@@ -101,6 +101,7 @@ Public Class usr_customer
                     editCusForm.c_fname.Text = dr.Item("c_fname").ToString()
                     editCusForm.c_mi.Text = dr.Item("c_mi").ToString()
                     editCusForm.c_cn.Text = dr.Item("c_cnum").ToString()
+                    editCusForm.emailText.Text = dr.Item("c_email").ToString()
                     editCusForm.mode = 1
                     editCusForm.Lname = firstCellValue
                     editCusForm.Fname = secondCellValue

@@ -32,6 +32,7 @@ Partial Class usr_customer
         Me.cusFname = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cusMi = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cusCnum = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.email = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cusAction = New System.Windows.Forms.DataGridViewImageColumn()
         Me.MetroPanel2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -79,7 +80,7 @@ Partial Class usr_customer
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cusNum, Me.cusLname, Me.cusFname, Me.cusMi, Me.cusCnum, Me.cusAction})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cusNum, Me.cusLname, Me.cusFname, Me.cusMi, Me.cusCnum, Me.email, Me.cusAction})
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 37)
         Me.DataGridView1.Name = "DataGridView1"
@@ -124,6 +125,13 @@ Partial Class usr_customer
         Me.cusCnum.Name = "cusCnum"
         Me.cusCnum.ReadOnly = True
         '
+        'email
+        '
+        Me.email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.email.HeaderText = "Email Address"
+        Me.email.Name = "email"
+        Me.email.ReadOnly = True
+        '
         'cusAction
         '
         Me.cusAction.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
@@ -159,5 +167,6 @@ Partial Class usr_customer
     Friend WithEvents cusFname As DataGridViewTextBoxColumn
     Friend WithEvents cusMi As DataGridViewTextBoxColumn
     Friend WithEvents cusCnum As DataGridViewTextBoxColumn
+    Friend WithEvents email As DataGridViewTextBoxColumn
     Friend WithEvents cusAction As DataGridViewImageColumn
 End Class

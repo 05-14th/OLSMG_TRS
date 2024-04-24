@@ -50,6 +50,8 @@ Public Class usr_suppliers
         addSup.subForm_panel.Controls.Clear()
         addSup.Size = New Size(400, 500)
         supForm.Dock = DockStyle.Fill
+        supForm.mode = 0
+        supForm.btn_deleteSup.Enabled = False
         addSup.subForm_panel.Controls.Add(supForm)
         addSup.ShowDialog()
     End Sub

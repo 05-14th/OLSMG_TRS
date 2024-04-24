@@ -26,11 +26,12 @@ Public Class add_cusForm
     Sub addData()
         cn.Open()
 
-        Dim cusInsertCommand As New MySqlCommand("INSERT INTO olsmg_customer (`c_lname`, `c_fname`, `c_mi`, `c_cnum`) VALUES (@cl, @cf, @cm, @cc)", cn)
+        Dim cusInsertCommand As New MySqlCommand("INSERT INTO olsmg_customer (`c_lname`, `c_fname`, `c_mi`, `c_cnum`, `c_email`) VALUES (@cl, @cf, @cm, @cc, @ce)", cn)
         cusInsertCommand.Parameters.Add("@cl", MySqlDbType.VarChar).Value = c_lname.Text
         cusInsertCommand.Parameters.Add("@cf", MySqlDbType.VarChar).Value = c_fname.Text
         cusInsertCommand.Parameters.Add("@cm", MySqlDbType.VarChar).Value = c_mi.Text
         cusInsertCommand.Parameters.Add("@cc", MySqlDbType.VarChar).Value = c_cn.Text
+        cusInsertCommand.Parameters.Add("@ce", MySqlDbType.VarChar).Value = emailText.Text
 
         Try
             If cusInsertCommand.ExecuteNonQuery() = 1 Then
@@ -56,12 +57,13 @@ Public Class add_cusForm
         Dim getCusIdCommand As New MySqlCommand($"SELECT c_id FROM olsmg_customer WHERE c_lname = '{Lname}' AND c_fname = '{Fname}' AND c_mi = '{Minit}'", cn)
         cusId = Convert.ToInt64(getCusIdCommand.ExecuteScalar())
 
-        Dim query As String = "UPDATE olsmg_customer SET c_lname=@cl, c_fname=@cf, c_mi=@cm, c_cnum=@cc WHERE c_id=@conditionValue"
+        Dim query As String = "UPDATE olsmg_customer SET c_lname=@cl, c_fname=@cf, c_mi=@cm, c_cnum=@cc, c_email=@ce WHERE c_id=@conditionValue"
         Dim command As New MySqlCommand(query, cn)
         command.Parameters.AddWithValue("@cl", c_lname.Text)
         command.Parameters.AddWithValue("@cf", c_fname.Text)
         command.Parameters.AddWithValue("@cm", c_mi.Text)
         command.Parameters.AddWithValue("@cc", c_cn.Text)
+        command.Parameters.AddWithValue("@ce", emailText.Text)
         command.Parameters.AddWithValue("@conditionValue", cusId)
         Try
             Dim rowsAffected As Integer = command.ExecuteNonQuery()

@@ -5,6 +5,8 @@ Public Class usr_invoice
     Inherits UserControl
     Dim addInv As New subForm()
     Dim invForm As New add_invoiceForm
+    Dim editInv As New subForm()
+    Dim editInvForm As New add_invoiceForm
 
     Sub LoadInvoice()
         Try
@@ -45,6 +47,8 @@ Public Class usr_invoice
         addInv.subForm_panel.Controls.Clear()
         addInv.Size = New Size(400, 500)
         invForm.Dock = DockStyle.Fill
+        invForm.mode = 0
+        invForm.btn_deleteInv.Enabled = False
         addInv.subForm_panel.Controls.Add(invForm)
         addInv.ShowDialog()
     End Sub
@@ -81,5 +85,43 @@ Public Class usr_invoice
 
     Private Sub search_TextChanged(sender As Object, e As EventArgs) Handles search_inv.TextChanged
         LoadTableData($"SELECT * FROM olsmg_invoice a JOIN olsmg_product b ON a.product_name_ref = b.product_name WHERE employee_name LIKE '%{search_inv.Text}%' OR product_name LIKE '%{search_inv.Text}%' OR cus_name LIKE '%{search_inv.Text}%' OR reference_num LIKE '%{search_inv.Text}%'")
+    End Sub
+
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+        If e.ColumnIndex = DataGridView1.Columns.Count - 1 AndAlso e.RowIndex >= 0 Then
+            Dim firstCellValue As String = DataGridView1.Rows(e.RowIndex).Cells(2).Value.ToString()
+            Dim secondCellValue As String = DataGridView1.Rows(e.RowIndex).Cells(3).Value.ToString()
+            Dim thirdCellValue As String = DataGridView1.Rows(e.RowIndex).Cells(5).Value.ToString()
+
+            Try
+                cn.Open()
+                cm = New MySqlCommand($"SELECT * FROM olsmg_invoice WHERE total_amount = '{firstCellValue}' AND cus_name='{secondCellValue}' AND product_name_ref='{thirdCellValue}'", cn)
+                dr = cm.ExecuteReader
+
+                If dr.Read() Then
+                    editInvForm.invTotalAmount.Text = dr.Item("total_amount").ToString()
+                    editInvForm.invCusName.Text = dr.Item("cus_name").ToString()
+                    editInvForm.invEmpName.Text = dr.Item("employee_name").ToString()
+                    editInvForm.invProdName.Text = dr.Item("product_name_ref").ToString()
+                    editInvForm.invRefNum.Text = dr.Item("reference_num").ToString()
+                    editInvForm.mode = 1
+                    editInvForm.totalAmount = firstCellValue
+                    editInvForm.cusName = secondCellValue
+                    editInvForm.productName = thirdCellValue
+                    editInvForm.invDate.Enabled = False
+                    editInv.subForm_panel.Controls.Clear()
+                    editInv.Size = New Size(400, 500)
+                    editInvForm.Dock = DockStyle.Fill
+                    editInv.subForm_panel.Controls.Add(editInvForm)
+                    editInv.ShowDialog()
+                Else
+                    MessageBox.Show("No data found for the selected product.")
+                End If
+                dr.Close()
+                cn.Close()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End If
     End Sub
 End Class
