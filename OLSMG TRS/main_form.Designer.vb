@@ -162,7 +162,7 @@ Partial Class main_form
         Me.btn_order.Name = "btn_order"
         Me.btn_order.Size = New System.Drawing.Size(230, 61)
         Me.btn_order.TabIndex = 0
-        Me.btn_order.Text = "ORDER (0)"
+        Me.btn_order.Text = "ORDER"
         '
         'btn_inventory
         '
@@ -171,7 +171,7 @@ Partial Class main_form
         Me.btn_inventory.Name = "btn_inventory"
         Me.btn_inventory.Size = New System.Drawing.Size(230, 61)
         Me.btn_inventory.TabIndex = 1
-        Me.btn_inventory.Text = "INVENTORY (0)"
+        Me.btn_inventory.Text = "INVENTORY"
         '
         'btn_invoice
         '
@@ -180,7 +180,7 @@ Partial Class main_form
         Me.btn_invoice.Name = "btn_invoice"
         Me.btn_invoice.Size = New System.Drawing.Size(230, 61)
         Me.btn_invoice.TabIndex = 2
-        Me.btn_invoice.Text = "INVOICE (0)"
+        Me.btn_invoice.Text = "INVOICE"
         '
         'Panel3
         '

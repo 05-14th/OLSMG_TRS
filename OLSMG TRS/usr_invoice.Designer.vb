@@ -33,8 +33,6 @@ Partial Class usr_invoice
         Me.invoiceTotalAmount = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.invoiceCusName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.invoiceEmpName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.invoiceProdName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.prodPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.invoiceRefNum = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.invoiceAction = New System.Windows.Forms.DataGridViewImageColumn()
         Me.MetroPanel2.SuspendLayout()
@@ -83,7 +81,7 @@ Partial Class usr_invoice
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.invoiceNum, Me.invoiceDataIssure, Me.invoiceTotalAmount, Me.invoiceCusName, Me.invoiceEmpName, Me.invoiceProdName, Me.prodPrice, Me.invoiceRefNum, Me.invoiceAction})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.invoiceNum, Me.invoiceDataIssure, Me.invoiceTotalAmount, Me.invoiceCusName, Me.invoiceEmpName, Me.invoiceRefNum, Me.invoiceAction})
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 37)
         Me.DataGridView1.Name = "DataGridView1"
@@ -105,7 +103,7 @@ Partial Class usr_invoice
         Me.invoiceDataIssure.HeaderText = "Date Issue"
         Me.invoiceDataIssure.Name = "invoiceDataIssure"
         Me.invoiceDataIssure.ReadOnly = True
-        Me.invoiceDataIssure.Width = 77
+        Me.invoiceDataIssure.Width = 83
         '
         'invoiceTotalAmount
         '
@@ -115,7 +113,7 @@ Partial Class usr_invoice
         Me.invoiceTotalAmount.HeaderText = "Total Amount"
         Me.invoiceTotalAmount.Name = "invoiceTotalAmount"
         Me.invoiceTotalAmount.ReadOnly = True
-        Me.invoiceTotalAmount.Width = 88
+        Me.invoiceTotalAmount.Width = 95
         '
         'invoiceCusName
         '
@@ -130,19 +128,6 @@ Partial Class usr_invoice
         Me.invoiceEmpName.HeaderText = "Employee Name"
         Me.invoiceEmpName.Name = "invoiceEmpName"
         Me.invoiceEmpName.ReadOnly = True
-        '
-        'invoiceProdName
-        '
-        Me.invoiceProdName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.invoiceProdName.HeaderText = "Product Name"
-        Me.invoiceProdName.Name = "invoiceProdName"
-        Me.invoiceProdName.ReadOnly = True
-        '
-        'prodPrice
-        '
-        Me.prodPrice.HeaderText = "Price"
-        Me.prodPrice.Name = "prodPrice"
-        Me.prodPrice.ReadOnly = True
         '
         'invoiceRefNum
         '
@@ -187,8 +172,6 @@ Partial Class usr_invoice
     Friend WithEvents invoiceTotalAmount As DataGridViewTextBoxColumn
     Friend WithEvents invoiceCusName As DataGridViewTextBoxColumn
     Friend WithEvents invoiceEmpName As DataGridViewTextBoxColumn
-    Friend WithEvents invoiceProdName As DataGridViewTextBoxColumn
-    Friend WithEvents prodPrice As DataGridViewTextBoxColumn
     Friend WithEvents invoiceRefNum As DataGridViewTextBoxColumn
     Friend WithEvents invoiceAction As DataGridViewImageColumn
 End Class

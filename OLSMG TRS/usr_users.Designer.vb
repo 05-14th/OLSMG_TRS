@@ -22,6 +22,7 @@ Partial Class usr_users
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(usr_users))
         Me.MetroPanel2 = New MetroFramework.Controls.MetroPanel()
         Me.search_cus = New MetroFramework.Controls.MetroTextBox()
         Me.btn_addUsers = New MetroFramework.Controls.MetroButton()
@@ -30,7 +31,10 @@ Partial Class usr_users
         Me.userFullname = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.userUname = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.userEmail = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.userAction = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cnum = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.roles = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.status = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.userAction = New System.Windows.Forms.DataGridViewImageColumn()
         Me.MetroPanel2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -77,7 +81,7 @@ Partial Class usr_users
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.userNum, Me.userFullname, Me.userUname, Me.userEmail, Me.userAction})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.userNum, Me.userFullname, Me.userUname, Me.userEmail, Me.cnum, Me.roles, Me.status, Me.userAction})
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 37)
         Me.DataGridView1.Name = "DataGridView1"
@@ -114,12 +118,39 @@ Partial Class usr_users
         Me.userEmail.Name = "userEmail"
         Me.userEmail.ReadOnly = True
         '
+        'cnum
+        '
+        Me.cnum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.cnum.HeaderText = "Contact Number"
+        Me.cnum.Name = "cnum"
+        Me.cnum.ReadOnly = True
+        '
+        'roles
+        '
+        Me.roles.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.roles.HeaderText = "Roles"
+        Me.roles.Name = "roles"
+        Me.roles.ReadOnly = True
+        Me.roles.Width = 59
+        '
+        'status
+        '
+        Me.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.status.HeaderText = "Status"
+        Me.status.Name = "status"
+        Me.status.ReadOnly = True
+        Me.status.Width = 62
+        '
         'userAction
         '
         Me.userAction.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.userAction.HeaderText = "Action"
+        Me.userAction.Image = CType(resources.GetObject("userAction.Image"), System.Drawing.Image)
+        Me.userAction.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
         Me.userAction.Name = "userAction"
         Me.userAction.ReadOnly = True
+        Me.userAction.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.userAction.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.userAction.Width = 62
         '
         'usr_users
@@ -143,5 +174,8 @@ Partial Class usr_users
     Friend WithEvents userFullname As DataGridViewTextBoxColumn
     Friend WithEvents userUname As DataGridViewTextBoxColumn
     Friend WithEvents userEmail As DataGridViewTextBoxColumn
-    Friend WithEvents userAction As DataGridViewTextBoxColumn
+    Friend WithEvents cnum As DataGridViewTextBoxColumn
+    Friend WithEvents roles As DataGridViewTextBoxColumn
+    Friend WithEvents status As DataGridViewTextBoxColumn
+    Friend WithEvents userAction As DataGridViewImageColumn
 End Class

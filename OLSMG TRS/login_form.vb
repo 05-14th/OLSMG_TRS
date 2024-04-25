@@ -28,8 +28,10 @@
 
     Private Sub btn_register_Click(sender As Object, e As EventArgs) Handles btn_register.Click
         mainPanel.Controls.Clear()
-        Dim myUserLogin As New usr_regsForm()
+        Dim myUserLogin As New add_userForm()
         myUserLogin.Dock = DockStyle.Fill
+        myUserLogin.cb_roles.Enabled = False
+        myUserLogin.btn_approve.Hide()
         mainPanel.Controls.Add(myUserLogin)
     End Sub
 End Class

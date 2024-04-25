@@ -1,4 +1,6 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.Security.Cryptography
+Imports System.Text
+Imports MySql.Data.MySqlClient
 Imports Org.BouncyCastle.Asn1.X500
 Module Module1
     Public cn As New MySqlConnection
@@ -24,4 +26,16 @@ Module Module1
             cn.Close()
         End Try
     End Sub
+
+    Public Function ConvertToMD5(input As String) As String
+        Dim md5Hasher As MD5 = MD5.Create()
+        Dim data As Byte() = md5Hasher.ComputeHash(Encoding.UTF8.GetBytes(input))
+        Dim sBuilder As New StringBuilder()
+
+        For Each b As Byte In data
+            sBuilder.Append(b.ToString("x2"))
+        Next
+
+        Return sBuilder.ToString()
+    End Function
 End Module

@@ -14,13 +14,13 @@ Public Class usr_invoice
             DataGridView1.Rows.Clear()
             cn.Open()
 
-            cm = New MySqlCommand("SELECT * FROM olsmg_invoice a JOIN olsmg_product b ON a.product_name_ref = b.product_name", cn)
+            cm = New MySqlCommand("SELECT * FROM olsmg_invoice", cn)
 
             dr = cm.ExecuteReader
             While dr.Read
                 i += 1
                 Dim dateWithoutTime As String = dr.GetDateTime("date_issue").ToString("MM/dd/yyyy")
-                DataGridView1.Rows.Add(i, dateWithoutTime, dr.Item("total_amount").ToString, dr.Item("cus_name").ToString, dr.Item("employee_name").ToString, dr.Item("product_name_ref").ToString, dr.Item("product_price").ToString, dr.Item("reference_num").ToString)
+                DataGridView1.Rows.Add(i, dateWithoutTime, dr.Item("total_amount").ToString, dr.Item("cus_name").ToString, dr.Item("employee_name").ToString, dr.Item("reference_num").ToString)
             End While
             DataGridView1.Sort(DataGridView1.Columns(1), System.ComponentModel.ListSortDirection.Ascending)
             dr.Close()
@@ -45,9 +45,11 @@ Public Class usr_invoice
 
     Private Sub btn_addInv_Click(sender As Object, e As EventArgs) Handles btn_addInv.Click
         addInv.subForm_panel.Controls.Clear()
-        addInv.Size = New Size(400, 500)
+        addInv.Size = New Size(806, 439)
         invForm.Dock = DockStyle.Fill
         invForm.mode = 0
+        invForm.invRefNum.Text = GenerateReferenceNumber().ToString
+        invForm.orderRef.Visible = False
         invForm.btn_deleteInv.Enabled = False
         addInv.subForm_panel.Controls.Add(invForm)
         addInv.ShowDialog()
@@ -63,7 +65,7 @@ Public Class usr_invoice
             While dr.Read
                 i += 1
                 Dim dateWithoutTime As String = dr.GetDateTime("date_issue").ToString("MM/dd/yyyy")
-                DataGridView1.Rows.Add(i, dateWithoutTime, dr.Item("total_amount").ToString, dr.Item("cus_name").ToString, dr.Item("employee_name").ToString, dr.Item("product_name_ref").ToString, dr.Item("product_price").ToString, dr.Item("reference_num").ToString)
+                DataGridView1.Rows.Add(i, dateWithoutTime, dr.Item("total_amount").ToString, dr.Item("cus_name").ToString, dr.Item("employee_name").ToString, dr.Item("reference_num").ToString)
             End While
             dr.Close()
             cn.Close()
@@ -84,8 +86,14 @@ Public Class usr_invoice
     End Sub
 
     Private Sub search_TextChanged(sender As Object, e As EventArgs) Handles search_inv.TextChanged
-        LoadTableData($"SELECT * FROM olsmg_invoice a JOIN olsmg_product b ON a.product_name_ref = b.product_name WHERE employee_name LIKE '%{search_inv.Text}%' OR product_name LIKE '%{search_inv.Text}%' OR cus_name LIKE '%{search_inv.Text}%' OR reference_num LIKE '%{search_inv.Text}%'")
+        LoadTableData($"SELECT * FROM olsmg_invoice WHERE employee_name LIKE '%{search_inv.Text}%' OR cus_name LIKE '%{search_inv.Text}%' OR reference_num LIKE '%{search_inv.Text}%'")
     End Sub
+
+    Function GenerateReferenceNumber() As String
+        Dim timestamp As String = DateTime.Now.ToString("yyyyMMddHHmmss")
+        Dim referenceNumber As String = "REF#" & timestamp
+        Return referenceNumber
+    End Function
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
         If e.ColumnIndex = DataGridView1.Columns.Count - 1 AndAlso e.RowIndex >= 0 Then
@@ -95,14 +103,13 @@ Public Class usr_invoice
 
             Try
                 cn.Open()
-                cm = New MySqlCommand($"SELECT * FROM olsmg_invoice WHERE total_amount = '{firstCellValue}' AND cus_name='{secondCellValue}' AND product_name_ref='{thirdCellValue}'", cn)
+                cm = New MySqlCommand($"SELECT * FROM olsmg_invoice WHERE total_amount = '{firstCellValue}' AND cus_name='{secondCellValue}' AND reference_num='{thirdCellValue}'", cn)
                 dr = cm.ExecuteReader
 
                 If dr.Read() Then
                     editInvForm.invTotalAmount.Text = dr.Item("total_amount").ToString()
                     editInvForm.invCusName.Text = dr.Item("cus_name").ToString()
                     editInvForm.invEmpName.Text = dr.Item("employee_name").ToString()
-                    editInvForm.invProdName.Text = dr.Item("product_name_ref").ToString()
                     editInvForm.invRefNum.Text = dr.Item("reference_num").ToString()
                     editInvForm.mode = 1
                     editInvForm.totalAmount = firstCellValue
@@ -110,7 +117,6 @@ Public Class usr_invoice
                     editInvForm.productName = thirdCellValue
                     editInvForm.invDate.Enabled = False
                     editInv.subForm_panel.Controls.Clear()
-                    editInv.Size = New Size(400, 500)
                     editInvForm.Dock = DockStyle.Fill
                     editInv.subForm_panel.Controls.Add(editInvForm)
                     editInv.ShowDialog()
@@ -124,4 +130,6 @@ Public Class usr_invoice
             End Try
         End If
     End Sub
+
+
 End Class

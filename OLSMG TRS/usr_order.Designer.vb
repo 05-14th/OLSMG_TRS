@@ -88,27 +88,34 @@ Partial Class usr_order
         '
         'id_no
         '
+        Me.id_no.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.id_no.HeaderText = "#"
         Me.id_no.Name = "id_no"
         Me.id_no.ReadOnly = True
+        Me.id_no.Width = 39
         '
         'cusName
         '
-        Me.cusName.HeaderText = "Customer Name"
+        Me.cusName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.cusName.HeaderText = "Ordered Product"
         Me.cusName.Name = "cusName"
         Me.cusName.ReadOnly = True
         '
         'prodOrder
         '
-        Me.prodOrder.HeaderText = "Product Ordered"
+        Me.prodOrder.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.prodOrder.HeaderText = "Quantity"
         Me.prodOrder.Name = "prodOrder"
         Me.prodOrder.ReadOnly = True
+        Me.prodOrder.Width = 71
         '
         'invoiceRef
         '
+        Me.invoiceRef.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.invoiceRef.HeaderText = "Invoice Reference"
         Me.invoiceRef.Name = "invoiceRef"
         Me.invoiceRef.ReadOnly = True
+        Me.invoiceRef.Width = 120
         '
         'orderAction
         '

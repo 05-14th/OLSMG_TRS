@@ -1,4 +1,6 @@
 ﻿Imports System.Globalization
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+Imports Google.Protobuf.Collections
 Imports Google.Protobuf.WellKnownTypes
 Imports K4os.Compression.LZ4.Streams
 Imports MySql.Data.MySqlClient
@@ -55,22 +57,30 @@ Public Class add_invoiceForm
         Dim selectedDate As DateTime = invDate.Value
         Dim reformatted As String = selectedDate.ToString("yyyyMMdd", CultureInfo.InvariantCulture)
 
-        Dim invInsertCommand As New MySqlCommand("INSERT INTO olsmg_invoice  (`date_issue`, `total_amount`, `cus_name`, `employee_name`, `product_name_ref`, `reference_num`) VALUES (@di, @ta, @cn, @en, @pnr, @rn)", cn)
+        Dim invInsertCommand As New MySqlCommand("INSERT INTO olsmg_invoice  (`date_issue`, `total_amount`, `cus_name`, `employee_name`, `reference_num`) VALUES (@di, @ta, @cn, @en, @rn)", cn)
         invInsertCommand.Parameters.Add("@di", MySqlDbType.VarChar).Value = reformatted
         invInsertCommand.Parameters.Add("@ta", MySqlDbType.VarChar).Value = invTotalAmount.Text
         invInsertCommand.Parameters.Add("@cn", MySqlDbType.VarChar).Value = invCusName.Text
         invInsertCommand.Parameters.Add("@en", MySqlDbType.VarChar).Value = invEmpName.Text
-        invInsertCommand.Parameters.Add("@pnr", MySqlDbType.VarChar).Value = invProdName.Text
         invInsertCommand.Parameters.Add("@rn", MySqlDbType.VarChar).Value = invRefNum.Text
 
         Try
             If invInsertCommand.ExecuteNonQuery() = 1 Then
-                MessageBox.Show("Data Inserted")
+                For Each row As DataGridViewRow In DataGridView1.Rows
+                    If Not row.IsNewRow Then
+                        Dim orderInsertCommand As New MySqlCommand("INSERT INTO olsmg_order  (`order_product`, `order_quantity`, `order_ref`) VALUES (@op, @oq, @or)", cn)
+                        orderInsertCommand.Parameters.AddWithValue("op", row.Cells(1).Value)
+                        orderInsertCommand.Parameters.AddWithValue("oq", row.Cells(2).Value)
+                        orderInsertCommand.Parameters.AddWithValue("or", invRefNum.Text)
+                        orderInsertCommand.ExecuteNonQuery()
+                    End If
+                Next
+                MsgBox("Data Added Successfully", vbOKOnly + vbInformation, "Data Insertion")
             Else
-                MessageBox.Show("Error inserting supplier data")
+                MsgBox("Error inserting supplier data", vbOKOnly + vbCritical, "Insertion Error")
             End If
         Catch ex As Exception
-            MessageBox.Show("Error updating data: " & ex.Message)
+            MsgBox("Error adding data: " & ex.Message, vbOKOnly + vbCritical, "Insertion Error")
         Finally
             cn.Close()
             main_form.mainPanel.Controls.Clear()
@@ -92,7 +102,6 @@ Public Class add_invoiceForm
         command.Parameters.AddWithValue("@ta", invTotalAmount.Text)
         command.Parameters.AddWithValue("@cn", invCusName.Text)
         command.Parameters.AddWithValue("@en", invEmpName.Text)
-        command.Parameters.AddWithValue("@pnr", invProdName.Text)
         command.Parameters.AddWithValue("@rn", invRefNum.Text)
         command.Parameters.AddWithValue("@conditionValue", invId)
         Try
@@ -156,9 +165,9 @@ Public Class add_invoiceForm
             Dim query As String = "SELECT product_name FROM olsmg_product"
             Dim command As New MySqlCommand(query, cn)
             Dim reader As MySqlDataReader = command.ExecuteReader()
-            invProdName.Items.Clear()
+            cb_product.Items.Clear()
             While reader.Read()
-                invProdName.Items.Add(reader.GetString("product_name"))
+                cb_product.Items.Add(reader.GetString("product_name"))
             End While
             reader.Close()
         Catch ex As Exception
@@ -203,4 +212,97 @@ Public Class add_invoiceForm
             CloseForm()
         End If
     End Sub
+
+    Dim sum As Integer = 0
+    Private price As Integer = 0
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_product.SelectedIndexChanged
+        Try
+            cn.Open()
+            Dim selectedItem As String = cb_product.SelectedItem.ToString()
+            Dim query As String = $"SELECT product_price FROM olsmg_product WHERE product_name = '{selectedItem}'"
+            Dim command As New MySqlCommand(query, cn)
+            Dim reader As MySqlDataReader = command.ExecuteReader()
+            Dim exists As Boolean
+            If reader.HasRows Then
+                While reader.Read()
+                    Dim productPrice As Double = reader.GetDouble("product_price")
+                    price = productPrice
+                    sum = 0
+                    DataGridView1.Rows.Add(DataGridView1.Rows.Count + 1, selectedItem, 1, productPrice.ToString("0.00"))
+                    For i As Integer = 0 To DataGridView1.Rows.Count() - 1 Step +1
+                        sum = sum + CInt(DataGridView1.Rows(i).Cells(3).Value)
+                    Next
+                    invTotalAmount.Text = sum.ToString("0.00")
+                End While
+            Else
+                MessageBox.Show("No rows found.")
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message)
+        Finally
+            cn.Close()
+        End Try
+    End Sub
+
+    Private Sub DataGridView1_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellEndEdit
+
+        Dim sum As Double = 0
+        If e.ColumnIndex = 2 AndAlso e.RowIndex >= 0 Then
+            Dim cellValue As Integer
+            Try
+                If Integer.TryParse(DataGridView1.Rows(e.RowIndex).Cells(e.ColumnIndex).Value.ToString(), cellValue) Then
+                    Dim result As Integer = cellValue * price
+                    DataGridView1.Rows(e.RowIndex).Cells(e.ColumnIndex + 1).Value = result.ToString("0.00")
+                    fixCount()
+                Else
+                    MsgBox("Please enter a valid number value.", vbOKOnly + vbExclamation, "Value Error")
+                    DataGridView1.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = 1
+
+                End If
+            Catch ex As System.NullReferenceException
+                MsgBox("Quantity cannot be empty", vbOKOnly + vbExclamation, "Value Error")
+                DataGridView1.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = 1
+            End Try
+        End If
+
+    End Sub
+
+    Private Sub btn_clearProd_Click(sender As Object, e As EventArgs) Handles btn_clearProd.Click
+        DataGridView1.Rows.Clear()
+        invTotalAmount.Clear()
+    End Sub
+
+    Private Sub btn_removeOrder_Click(sender As Object, e As EventArgs) Handles btn_removeOrder.Click
+        For Each item As DataGridViewRow In DataGridView1.SelectedRows
+            If Not item.IsNewRow Then
+                DataGridView1.Rows.RemoveAt(item.Index)
+            End If
+        Next
+
+        fixCount()
+    End Sub
+
+    Private Sub fixCount()
+        sum = 0
+        For Each row As DataGridViewRow In DataGridView1.Rows
+            Dim cellValue1 As Double
+            If Double.TryParse(row.Cells(3).Value.ToString(), cellValue1) Then
+                sum += cellValue1
+            End If
+            invTotalAmount.Clear()
+            invTotalAmount.Text = sum.ToString("0.00")
+        Next
+    End Sub
+
+
+    Private Sub DataGridView1_RowsRemoved(sender As Object, e As DataGridViewRowsRemovedEventArgs) Handles DataGridView1.RowsRemoved
+        For i As Integer = e.RowIndex To DataGridView1.Rows.Count - 1
+            DataGridView1.Rows(i).Cells(0).Value = i + 1
+        Next
+        If DataGridView1.RowCount = 0 Then
+            invTotalAmount.Clear()
+        End If
+    End Sub
+
 End Class

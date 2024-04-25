@@ -1,7 +1,15 @@
-﻿Public Class main_form
+﻿Imports MySql.Data.MySqlClient
+Imports Mysqlx
+
+Public Class main_form
+    Dim invoiceCount As Integer
+    Dim inventoryCount As Integer
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ConnectToDB()
         load_order_dgv()
+
+
     End Sub
     Private Sub closeButton_Click(sender As Object, e As EventArgs) Handles closeButton.Click
         Dim intResponse As Integer
@@ -10,6 +18,28 @@
             Me.Dispose()
             login_form.Dispose()
         End If
+    End Sub
+
+    Public Sub countData()
+        Dim invQuery As String
+        Dim inventoryQuery As String
+        Try
+            cn.Open()
+            invQuery = "SELECT COUNT(*) FROM olsmg_invoice"
+            inventoryQuery = "SELECT COUNT(*) FROM olsmg_product"
+            Dim command As New MySqlCommand(invQuery, cn)
+            Dim inventoryCom As New MySqlCommand(inventoryQuery, cn)
+            Dim rowCount As Integer = Convert.ToInt32(command.ExecuteScalar())
+            Dim _rowCount As Integer = Convert.ToInt32(inventoryCom.ExecuteScalar())
+            invoiceCount = rowCount
+            inventoryCount = _rowCount
+            btn_inventory.Text = $"INVENTORY ({inventoryCount})"
+            btn_invoice.Text = $"INVOICE ({invoiceCount})"
+        Catch ex As Exception
+            MsgBox($"Unable to count data from database. {ex.Message}", vbOKOnly + vbCritical, "Connection Error")
+        Finally
+            cn.Close()
+        End Try
     End Sub
 
     Private Sub load_order_dgv()
@@ -93,4 +123,6 @@
         btn_employee.Enabled = False
         btn_suppliers.Enabled = False
     End Sub
+
+
 End Class
