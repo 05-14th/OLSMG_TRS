@@ -22,7 +22,7 @@ Partial Class add_invoiceForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.MetroPanel2 = New MetroFramework.Controls.MetroPanel()
         Me.invDate = New System.Windows.Forms.DateTimePicker()
         Me.invCusName = New MetroFramework.Controls.MetroComboBox()
@@ -39,16 +39,15 @@ Partial Class add_invoiceForm
         Me.btn_invAdd = New MetroFramework.Controls.MetroButton()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.orderNum = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.orderName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.orderAmount = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.orderUnitPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.orderRef = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.MetroLabel1 = New MetroFramework.Controls.MetroLabel()
         Me.btn_clearProd = New MetroFramework.Controls.MetroButton()
         Me.btn_removeOrder = New MetroFramework.Controls.MetroButton()
         Me.cb_product = New MetroFramework.Controls.MetroComboBox()
+        Me.orderNum = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.orderName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.orderAmount = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.orderUnitPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MetroPanel2.SuspendLayout()
         Me.MetroPanel1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -227,46 +226,12 @@ Partial Class add_invoiceForm
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.orderNum, Me.orderName, Me.orderAmount, Me.orderUnitPrice, Me.orderRef})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.orderNum, Me.orderName, Me.orderAmount, Me.orderUnitPrice})
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 39)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(511, 366)
         Me.DataGridView1.TabIndex = 4
-        '
-        'orderNum
-        '
-        Me.orderNum.HeaderText = "#"
-        Me.orderNum.Name = "orderNum"
-        '
-        'orderName
-        '
-        Me.orderName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.orderName.HeaderText = "Product"
-        Me.orderName.Name = "orderName"
-        '
-        'orderAmount
-        '
-        Me.orderAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.orderAmount.HeaderText = "Quantity"
-        Me.orderAmount.Name = "orderAmount"
-        Me.orderAmount.Width = 71
-        '
-        'orderUnitPrice
-        '
-        Me.orderUnitPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.orderUnitPrice.DefaultCellStyle = DataGridViewCellStyle2
-        Me.orderUnitPrice.HeaderText = "Price"
-        Me.orderUnitPrice.Name = "orderUnitPrice"
-        Me.orderUnitPrice.Width = 56
-        '
-        'orderRef
-        '
-        Me.orderRef.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.orderRef.HeaderText = "Invoice Reference"
-        Me.orderRef.Name = "orderRef"
-        Me.orderRef.Width = 110
         '
         'Panel2
         '
@@ -319,6 +284,33 @@ Partial Class add_invoiceForm
         Me.cb_product.Size = New System.Drawing.Size(185, 29)
         Me.cb_product.TabIndex = 6
         '
+        'orderNum
+        '
+        Me.orderNum.HeaderText = "#"
+        Me.orderNum.Name = "orderNum"
+        '
+        'orderName
+        '
+        Me.orderName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.orderName.HeaderText = "Product"
+        Me.orderName.Name = "orderName"
+        '
+        'orderAmount
+        '
+        Me.orderAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.orderAmount.HeaderText = "Quantity"
+        Me.orderAmount.Name = "orderAmount"
+        Me.orderAmount.Width = 71
+        '
+        'orderUnitPrice
+        '
+        Me.orderUnitPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.orderUnitPrice.DefaultCellStyle = DataGridViewCellStyle3
+        Me.orderUnitPrice.HeaderText = "Price"
+        Me.orderUnitPrice.Name = "orderUnitPrice"
+        Me.orderUnitPrice.Width = 56
+        '
         'add_invoiceForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -364,5 +356,4 @@ Partial Class add_invoiceForm
     Friend WithEvents orderName As DataGridViewTextBoxColumn
     Friend WithEvents orderAmount As DataGridViewTextBoxColumn
     Friend WithEvents orderUnitPrice As DataGridViewTextBoxColumn
-    Friend WithEvents orderRef As DataGridViewTextBoxColumn
 End Class

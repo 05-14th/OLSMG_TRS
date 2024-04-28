@@ -22,6 +22,7 @@ Partial Class usr_order
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(usr_order))
         Me.MetroPanel2 = New MetroFramework.Controls.MetroPanel()
         Me.search_order = New MetroFramework.Controls.MetroTextBox()
         Me.btn_addOrder = New MetroFramework.Controls.MetroButton()
@@ -30,7 +31,7 @@ Partial Class usr_order
         Me.cusName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.prodOrder = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.invoiceRef = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.orderAction = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.orderAction = New System.Windows.Forms.DataGridViewImageColumn()
         Me.MetroPanel2.SuspendLayout()
         CType(Me.dgv_order, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -115,14 +116,18 @@ Partial Class usr_order
         Me.invoiceRef.HeaderText = "Invoice Reference"
         Me.invoiceRef.Name = "invoiceRef"
         Me.invoiceRef.ReadOnly = True
-        Me.invoiceRef.Width = 120
+        Me.invoiceRef.Width = 110
         '
         'orderAction
         '
         Me.orderAction.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.orderAction.HeaderText = "Action"
+        Me.orderAction.Image = CType(resources.GetObject("orderAction.Image"), System.Drawing.Image)
+        Me.orderAction.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
         Me.orderAction.Name = "orderAction"
         Me.orderAction.ReadOnly = True
+        Me.orderAction.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.orderAction.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.orderAction.Width = 62
         '
         'usr_order
@@ -146,5 +151,5 @@ Partial Class usr_order
     Friend WithEvents cusName As DataGridViewTextBoxColumn
     Friend WithEvents prodOrder As DataGridViewTextBoxColumn
     Friend WithEvents invoiceRef As DataGridViewTextBoxColumn
-    Friend WithEvents orderAction As DataGridViewTextBoxColumn
+    Friend WithEvents orderAction As DataGridViewImageColumn
 End Class

@@ -24,7 +24,7 @@ Partial Class usr_users
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(usr_users))
         Me.MetroPanel2 = New MetroFramework.Controls.MetroPanel()
-        Me.search_cus = New MetroFramework.Controls.MetroTextBox()
+        Me.search_user = New MetroFramework.Controls.MetroTextBox()
         Me.btn_addUsers = New MetroFramework.Controls.MetroButton()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.userNum = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -41,7 +41,7 @@ Partial Class usr_users
         '
         'MetroPanel2
         '
-        Me.MetroPanel2.Controls.Add(Me.search_cus)
+        Me.MetroPanel2.Controls.Add(Me.search_user)
         Me.MetroPanel2.Controls.Add(Me.btn_addUsers)
         Me.MetroPanel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.MetroPanel2.HorizontalScrollbarBarColor = True
@@ -55,15 +55,15 @@ Partial Class usr_users
         Me.MetroPanel2.VerticalScrollbarHighlightOnWheel = False
         Me.MetroPanel2.VerticalScrollbarSize = 10
         '
-        'search_cus
+        'search_user
         '
-        Me.search_cus.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.search_user.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.search_cus.Location = New System.Drawing.Point(503, 7)
-        Me.search_cus.Name = "search_cus"
-        Me.search_cus.Size = New System.Drawing.Size(240, 23)
-        Me.search_cus.TabIndex = 3
-        Me.search_cus.Text = "Search for a user"
+        Me.search_user.Location = New System.Drawing.Point(503, 7)
+        Me.search_user.Name = "search_user"
+        Me.search_user.Size = New System.Drawing.Size(240, 23)
+        Me.search_user.TabIndex = 3
+        Me.search_user.Text = "Search for user"
         '
         'btn_addUsers
         '
@@ -167,7 +167,7 @@ Partial Class usr_users
 
     End Sub
     Friend WithEvents MetroPanel2 As MetroFramework.Controls.MetroPanel
-    Friend WithEvents search_cus As MetroFramework.Controls.MetroTextBox
+    Friend WithEvents search_user As MetroFramework.Controls.MetroTextBox
     Friend WithEvents btn_addUsers As MetroFramework.Controls.MetroButton
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents userNum As DataGridViewTextBoxColumn

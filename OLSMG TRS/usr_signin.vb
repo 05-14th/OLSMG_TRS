@@ -31,18 +31,21 @@ Public Class usr_signin
             Dim reader As MySqlDataReader = command.ExecuteReader()
 
             If result = 1 And reader.Read() Then
-                login_form.hideLogin()
                 roles = reader(1).ToString()
                 status = reader(2).ToString()
                 If status = "Active" Then
                     If roles = "Admin" Then
+                        login_form.hideLogin()
                         main_form.ShowDialog()
                     ElseIf roles = "Employee" Then
+                        login_form.hideLogin()
                         main_form.LoginAsEmployee()
                         main_form.ShowDialog()
                     End If
                 ElseIf status = "Pending" Then
                     MsgBox("Your account is being reviewed. Please stay in contact with the administrator.")
+                    userText.Text = "Username"
+                    passText.Text = "Password"
                 End If
             Else
                 MsgBox("Please enter a valid account.", vbExclamation, "Invalid Credentials")

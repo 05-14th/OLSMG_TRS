@@ -149,4 +149,33 @@ Public Class usr_users
             End Try
         End If
     End Sub
+
+    Private Sub search_cus_Click(sender As Object, e As EventArgs) Handles search_user.Click
+        If search_user.Text = "Search for user" Then
+            search_user.Text = ""
+        End If
+    End Sub
+
+    Public Sub LoadTableData(query1 As String)
+        Try
+            Dim i As Integer = 0
+            DataGridView1.Rows.Clear()
+            cn.Open()
+            cm = New MySqlCommand(query1, cn)
+            dr = cm.ExecuteReader
+            While dr.Read
+                i += 1
+                DataGridView1.Rows.Add(i, dr.Item("user_fullname").ToString, dr.Item("user_uname").ToString, dr.Item("user_email").ToString, dr.Item("user_cnum").ToString, dr.Item("user_status").ToString, dr.Item("user_role").ToString)
+            End While
+            dr.Close()
+            cn.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            cn.Close()
+        End Try
+    End Sub
+
+    Private Sub search_user_TextChanged(sender As Object, e As EventArgs) Handles search_user.TextChanged
+        LoadTableData($"SELECT * FROM olsmg_users WHERE user_fullname LIKE '%{search_user.Text}%' OR user_uname LIKE '%{search_user.Text}%'")
+    End Sub
 End Class

@@ -179,18 +179,29 @@ Public Class add_invoiceForm
 
     Private Sub DeleteData()
         dr.Close()
-        Dim invId As Integer
-        Dim getInvIdCommand As New MySqlCommand($"SELECT invoice_id FROM olsmg_invoice WHERE total_amount = '{totalAmount}' AND cus_name = '{cusName}' AND product_name_ref = '{productName}'", cn)
-        invId = Convert.ToInt64(getInvIdCommand.ExecuteScalar())
+        Dim delquery As String = "DELETE FROM olsmg_order WHERE order_ref=@conditionValueDelete"
+        Dim deleteOrderCommand As New MySqlCommand(delquery, cn)
+        deleteOrderCommand.Parameters.AddWithValue("@conditionValueDelete", invRefNum.Text)
 
-        Dim query As String = "DELETE FROM olsmg_invoice WHERE invoice_id=@conditionValue"
-        Dim command As New MySqlCommand(query, cn)
-        command.Parameters.AddWithValue("@conditionValue", invId)
         Try
-            Dim rowsAffected As Integer = command.ExecuteNonQuery()
-            MessageBox.Show("Data deleted successfully.")
+            If deleteOrderCommand.ExecuteNonQuery() >= 0 Then
+                Dim query As String = "DELETE FROM olsmg_invoice WHERE reference_num=@conditionValue"
+                Dim deleleInvCommand As New MySqlCommand(query, cn)
+                deleleInvCommand.Parameters.AddWithValue("@conditionValue", invRefNum.Text)
+                Try
+                    If deleleInvCommand.ExecuteNonQuery() Then
+                        MsgBox("Invoice deleted successfully.", vbOKOnly + vbInformation, "Success")
+                    Else
+                        MsgBox("Error deleting data", vbOKOnly + vbCritical, "Deletion Error")
+                    End If
+                Catch ex As Exception
+                    MsgBox("Error deleting data: " & ex.Message, vbOKOnly + vbCritical, "Deletion Error")
+                End Try
+            Else
+                MsgBox("Error deleting order data", vbOKOnly + vbCritical, "Deletion Error")
+            End If
         Catch ex As Exception
-            MessageBox.Show("Error deleting data: " & ex.Message)
+            MsgBox("Error deleting data: " & ex.Message, vbOKOnly + vbCritical, "Deletion Error")
         Finally
             If cn.State <> ConnectionState.Closed Then
                 cn.Close()
@@ -305,4 +316,7 @@ Public Class add_invoiceForm
         End If
     End Sub
 
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+
+    End Sub
 End Class

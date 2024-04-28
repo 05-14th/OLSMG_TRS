@@ -49,7 +49,7 @@ Public Class usr_invoice
         invForm.Dock = DockStyle.Fill
         invForm.mode = 0
         invForm.invRefNum.Text = GenerateReferenceNumber().ToString
-        invForm.orderRef.Visible = False
+
         invForm.btn_deleteInv.Enabled = False
         addInv.subForm_panel.Controls.Add(invForm)
         addInv.ShowDialog()
@@ -97,13 +97,11 @@ Public Class usr_invoice
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
         If e.ColumnIndex = DataGridView1.Columns.Count - 1 AndAlso e.RowIndex >= 0 Then
-            Dim firstCellValue As String = DataGridView1.Rows(e.RowIndex).Cells(2).Value.ToString()
-            Dim secondCellValue As String = DataGridView1.Rows(e.RowIndex).Cells(3).Value.ToString()
-            Dim thirdCellValue As String = DataGridView1.Rows(e.RowIndex).Cells(5).Value.ToString()
+            Dim refNumValue As String = DataGridView1.Rows(e.RowIndex).Cells(5).Value.ToString()
 
             Try
                 cn.Open()
-                cm = New MySqlCommand($"SELECT * FROM olsmg_invoice WHERE total_amount = '{firstCellValue}' AND cus_name='{secondCellValue}' AND reference_num='{thirdCellValue}'", cn)
+                cm = New MySqlCommand($"SELECT * FROM olsmg_invoice WHERE reference_num='{refNumValue}'", cn)
                 dr = cm.ExecuteReader
 
                 If dr.Read() Then
@@ -111,10 +109,30 @@ Public Class usr_invoice
                     editInvForm.invCusName.Text = dr.Item("cus_name").ToString()
                     editInvForm.invEmpName.Text = dr.Item("employee_name").ToString()
                     editInvForm.invRefNum.Text = dr.Item("reference_num").ToString()
+                    dr.Close()
                     editInvForm.mode = 1
-                    editInvForm.totalAmount = firstCellValue
-                    editInvForm.cusName = secondCellValue
-                    editInvForm.productName = thirdCellValue
+                    editInvForm.productName = refNumValue
+                    Try
+                        Dim i As Integer = 0
+                        Dim prodTotalPrice As Double
+                        editInvForm.DataGridView1.Rows.Clear()
+
+                        cm = New MySqlCommand($"SELECT * FROM olsmg_invoice a JOIN olsmg_order b ON a.reference_num = b.order_ref JOIN olsmg_product c ON b.order_product = c.product_name WHERE reference_num='{refNumValue}'", cn)
+
+                        dr1 = cm.ExecuteReader
+                        While dr1.Read
+                            i += 1
+                            prodTotalPrice = Double.Parse(dr1.Item("product_price").ToString) * Integer.Parse(dr1.Item("order_quantity").ToString)
+                            editInvForm.DataGridView1.Rows.Add(i, dr1.Item("order_product").ToString, dr1.Item("order_quantity").ToString, prodTotalPrice.ToString("0.00"))
+                        End While
+                        DataGridView1.Sort(DataGridView1.Columns(1), System.ComponentModel.ListSortDirection.Ascending)
+                        dr1.Close()
+
+                    Catch ex As Exception
+                        MsgBox(ex.Message)
+
+                    End Try
+
                     editInvForm.invDate.Enabled = False
                     editInv.subForm_panel.Controls.Clear()
                     editInvForm.Dock = DockStyle.Fill
@@ -123,7 +141,6 @@ Public Class usr_invoice
                 Else
                     MessageBox.Show("No data found for the selected product.")
                 End If
-                dr.Close()
                 cn.Close()
             Catch ex As Exception
                 MsgBox(ex.Message)

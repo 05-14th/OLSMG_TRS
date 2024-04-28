@@ -164,6 +164,12 @@
     <Compile Include="add_invoiceForm.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="add_orderForm.Designer.vb">
+      <DependentUpon>add_orderForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="add_orderForm.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="add_supForm.Designer.vb">
       <DependentUpon>add_supForm.vb</DependentUpon>
     </Compile>
@@ -279,6 +285,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="add_invoiceForm.resx">
       <DependentUpon>add_invoiceForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="add_orderForm.resx">
+      <DependentUpon>add_orderForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="add_supForm.resx">
       <DependentUpon>add_supForm.vb</DependentUpon>
