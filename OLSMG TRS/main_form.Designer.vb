@@ -39,6 +39,7 @@ Partial Class main_form
         Me.btn_invoice = New MetroFramework.Controls.MetroButton()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.mainPanel = New System.Windows.Forms.Panel()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -48,6 +49,7 @@ Partial Class main_form
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Controls.Add(Me.closeButton)
@@ -201,6 +203,18 @@ Partial Class main_form
         Me.mainPanel.Size = New System.Drawing.Size(696, 423)
         Me.mainPanel.TabIndex = 5
         '
+        'Label2
+        '
+        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label2.AutoSize = True
+        Me.Label2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(882, 9)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(12, 15)
+        Me.Label2.TabIndex = 3
+        Me.Label2.Text = "-"
+        '
         'main_form
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -241,4 +255,5 @@ Partial Class main_form
     Friend WithEvents btn_customers As Label
     Friend WithEvents btn_employee As Label
     Friend WithEvents mainPanel As Panel
+    Friend WithEvents Label2 As Label
 End Class

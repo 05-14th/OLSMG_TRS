@@ -132,6 +132,9 @@
   <metadata name="invProdPrice.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="prodStocks.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="invSupplier.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -142,7 +145,7 @@
   <data name="invAction.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EQAACxEBf2RfkQAAAMlJREFUSEvtlTEKwkAQRXMYsbOzsBbEwtbSS1hZaqXeyyPY6wkUK1t9H1wYwqyI
+        EAAACxABrSO9dQAAAMlJREFUSEvtlTEKwkAQRXMYsbOzsBbEwtbSS1hZaqXeyyPY6wkUK1t9H1wYwqyI
         7gSCefAQJuDLbAKpOtrOEq94xKEGTbDBh/GGIwylHrXx0M1zYaljDyUXv2BRFJIWL64Xrhg2sNfAsMJ0
         ba1BKbytvM3rs5/wosn65sV4F00Wj38SleHP1LOLfsX/RKeo76kXsurmirNAL5YMiYoJekEZFhV9bCw6
         QPvHPRzjHO8YtukOc1vNXr8hnDH0SHMc8IRb1LF3tJ2qegIBDKHK9nJiewAAAABJRU5ErkJggg==

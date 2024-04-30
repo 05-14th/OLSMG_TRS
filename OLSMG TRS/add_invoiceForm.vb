@@ -28,6 +28,7 @@ Public Class add_invoiceForm
         _mi = result(2)
     End Sub
 
+
     Public Sub New()
         InitializeComponent()
         Me.Dock = DockStyle.Fill
@@ -35,6 +36,8 @@ Public Class add_invoiceForm
         populateCusComboBox()
         populateEmpComboBox()
         populateProdComboBox()
+        Dim lastColumnIndex As Integer = DataGridView1.Columns.Count - 1
+        DataGridView1.Columns(lastColumnIndex).Visible = False
     End Sub
     Public Sub CloseForm()
         Dim parentForm As Form = TryCast(Me.ParentForm, Form)
@@ -73,8 +76,14 @@ Public Class add_invoiceForm
                         orderInsertCommand.Parameters.AddWithValue("oq", row.Cells(2).Value)
                         orderInsertCommand.Parameters.AddWithValue("or", invRefNum.Text)
                         orderInsertCommand.ExecuteNonQuery()
+
+                        Dim stocksUpdateCommand As New MySqlCommand("UPDATE olsmg_product SET product_stocks=@ps WHERE product_name=@pn", cn)
+                        stocksUpdateCommand.Parameters.AddWithValue("@ps", CInt(row.Cells(4).Value) - CInt(row.Cells(2).Value))
+                        stocksUpdateCommand.Parameters.AddWithValue("@pn", row.Cells(1).Value)
+                        stocksUpdateCommand.ExecuteNonQuery()
                     End If
                 Next
+
                 MsgBox("Data Added Successfully", vbOKOnly + vbInformation, "Data Insertion")
             Else
                 MsgBox("Error inserting supplier data", vbOKOnly + vbCritical, "Insertion Error")
@@ -231,16 +240,17 @@ Public Class add_invoiceForm
         Try
             cn.Open()
             Dim selectedItem As String = cb_product.SelectedItem.ToString()
-            Dim query As String = $"SELECT product_price FROM olsmg_product WHERE product_name = '{selectedItem}'"
+            Dim query As String = $"SELECT product_price, product_stocks FROM olsmg_product WHERE product_name = '{selectedItem}'"
             Dim command As New MySqlCommand(query, cn)
             Dim reader As MySqlDataReader = command.ExecuteReader()
             Dim exists As Boolean
             If reader.HasRows Then
                 While reader.Read()
                     Dim productPrice As Double = reader.GetDouble("product_price")
+                    Dim productStocks As Integer = reader.GetInt64("product_stocks")
                     price = productPrice
                     sum = 0
-                    DataGridView1.Rows.Add(DataGridView1.Rows.Count + 1, selectedItem, 1, productPrice.ToString("0.00"))
+                    DataGridView1.Rows.Add(DataGridView1.Rows.Count + 1, selectedItem, 1, productPrice.ToString("0.00"), productStocks)
                     For i As Integer = 0 To DataGridView1.Rows.Count() - 1 Step +1
                         sum = sum + CInt(DataGridView1.Rows(i).Cells(3).Value)
                     Next

@@ -22,6 +22,7 @@ Public Class usr_users
     Private Sub btn_addUsers_Click(sender As Object, e As EventArgs) Handles btn_addUsers.Click
         addUser.subForm_panel.Controls.Clear()
         addUser.Size = New Size(400, 500)
+        userForm.state = "Admin"
         userForm.Dock = DockStyle.Fill
         userForm.btn_approve.Hide()
         addUser.subForm_panel.Controls.Add(userForm)

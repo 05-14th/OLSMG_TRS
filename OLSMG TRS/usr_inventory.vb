@@ -18,7 +18,7 @@ Public Class usr_inventory
             dr = cm.ExecuteReader
             While dr.Read
                 i += 1
-                DataGridView1.Rows.Add(i, dr.Item("product_name").ToString, dr.Item("product_size").ToString, dr.Item("product_color").ToString, dr.Item("product_price").ToString, dr.Item("store_name").ToString)
+                DataGridView1.Rows.Add(i, dr.Item("product_name").ToString, dr.Item("product_size").ToString, dr.Item("product_color").ToString, dr.Item("product_price").ToString, dr.Item("product_stocks").ToString, dr.Item("store_name").ToString)
                 DataGridView1.Sort(DataGridView1.Columns(0), System.ComponentModel.ListSortDirection.Ascending)
             End While
 
@@ -61,7 +61,7 @@ Public Class usr_inventory
             dr = cm.ExecuteReader
             While dr.Read
                 i += 1
-                DataGridView1.Rows.Add(i, dr.Item("product_name").ToString, dr.Item("product_size").ToString, dr.Item("product_color").ToString, dr.Item("product_price").ToString, dr.Item("store_name").ToString)
+                DataGridView1.Rows.Add(i, dr.Item("product_name").ToString, dr.Item("product_size").ToString, dr.Item("product_color").ToString, dr.Item("product_price").ToString, dr.Item("product_stocks").Tostring ,dr.Item("store_name").ToString)
             End While
             dr.Close()
             cn.Close()
@@ -98,6 +98,7 @@ Public Class usr_inventory
                     editProdForm.prodSize.Text = dr.Item("product_size").ToString()
                     editProdForm.prodColor.Text = dr.Item("product_color").ToString()
                     editProdForm.prodPrice.Text = dr.Item("product_price").ToString()
+                    editProdForm.stocksEntry.Text = dr.Item("product_stocks").ToString()
                     editProdForm.prodSup.Text = dr.Item("store_name").ToString()
                     editProdForm.mode = 1
                     editProdForm.productName = firstCellValue

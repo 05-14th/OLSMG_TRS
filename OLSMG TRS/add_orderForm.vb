@@ -70,6 +70,15 @@ Public Class add_orderForm
         Try
             If orderInsertCommand.ExecuteNonQuery() = 1 Then
                 UpdateAmount("Add")
+                Dim selectProdCommand As New MySqlCommand("SELECT product_stocks FROM olsmg_product WHERE product_name=@prodName", cn)
+                selectProdCommand.Parameters.AddWithValue("@prodName", cb_orderProd.Text)
+                Dim productStock As Integer = 0
+                Dim result As Object = selectProdCommand.ExecuteScalar()
+                productStock = Convert.ToInt32(result)
+                Dim stocksUpdateCommand As New MySqlCommand("UPDATE olsmg_product SET product_stocks=@ps WHERE product_name=@pn", cn)
+                stocksUpdateCommand.Parameters.AddWithValue("@ps", productStock - CInt(quantityText.Text))
+                stocksUpdateCommand.Parameters.AddWithValue("@pn", cb_orderProd.Text)
+                stocksUpdateCommand.ExecuteNonQuery()
                 MsgBox("Data Inserted Successfully", vbOKOnly + vbInformation, "Success")
             Else
                 MsgBox("Error inserting supplier data", vbOKOnly + vbCritical, "Insertion Error")

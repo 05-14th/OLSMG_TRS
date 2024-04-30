@@ -33,15 +33,17 @@ Public Class add_prodForm
         Dim getSupplierIdCommand As New MySqlCommand($"SELECT store_num FROM olsmg_supplier WHERE store_name = '{prodSup.Text}'", cn)
         supId = Convert.ToInt64(getSupplierIdCommand.ExecuteScalar())
 
-        Dim productInsertCommand As New MySqlCommand("INSERT INTO olsmg_product (`product_name`, `product_size`, `product_color`, `product_price`, `store_number`) VALUES (@pn, @ps, @pc, @pp, @st)", cn)
+        Dim productInsertCommand As New MySqlCommand("INSERT INTO olsmg_product (`product_name`, `product_size`, `product_color`, `product_price`, `product_stocks`,`store_number`) VALUES (@pn, @ps, @pc, @pp, @pStocks,@st)", cn)
         productInsertCommand.Parameters.Add("@pn", MySqlDbType.VarChar).Value = prodName.Text
         productInsertCommand.Parameters.Add("@ps", MySqlDbType.VarChar).Value = prodSize.Text
         productInsertCommand.Parameters.Add("@pc", MySqlDbType.VarChar).Value = prodColor.Text
         productInsertCommand.Parameters.Add("@pp", MySqlDbType.Decimal).Value = prodPrice.Text
+        productInsertCommand.Parameters.Add("@pStocks", MySqlDbType.Int64).Value = stocksEntry.Text
         productInsertCommand.Parameters.Add("@st", MySqlDbType.Int64).Value = supId
 
         Try
             If productInsertCommand.ExecuteNonQuery() = 1 Then
+
                 MessageBox.Show("Data Inserted")
             Else
                 MessageBox.Show("Error inserting supplier data")
@@ -68,12 +70,13 @@ Public Class add_prodForm
         Dim getSupplierIdCommand As New MySqlCommand($"SELECT store_num FROM olsmg_supplier WHERE store_name = '{prodSup.Text}'", cn)
         supId = Convert.ToInt64(getSupplierIdCommand.ExecuteScalar())
 
-        Dim query As String = "UPDATE olsmg_product SET product_size=@ps, product_color=@pc, product_price=@pr, store_number=@sn WHERE product_name=@conditionValue"
+        Dim query As String = "UPDATE olsmg_product SET product_size=@ps, product_color=@pc, product_price=@pr, store_number=@sn, product_stocks=@pStocks WHERE product_name=@conditionValue"
         Dim command As New MySqlCommand(query, cn)
         command.Parameters.AddWithValue("@ps", prodSize.Text)
         command.Parameters.AddWithValue("@pc", prodColor.Text)
         command.Parameters.AddWithValue("@pr", prodPrice.Text)
         command.Parameters.AddWithValue("@sn", supId)
+        command.Parameters.AddWithValue("@pStocks", stocksEntry.Text)
         command.Parameters.AddWithValue("@conditionValue", productName)
         Try
             Dim rowsAffected As Integer = command.ExecuteNonQuery()
@@ -143,4 +146,5 @@ Public Class add_prodForm
             CloseForm()
         End If
     End Sub
+
 End Class

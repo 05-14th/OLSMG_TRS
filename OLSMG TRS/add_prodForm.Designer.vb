@@ -23,7 +23,6 @@ Partial Class add_prodForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.MetroPanel2 = New MetroFramework.Controls.MetroPanel()
-        Me.prodSup = New MetroFramework.Controls.MetroComboBox()
         Me.MetroLabel1 = New MetroFramework.Controls.MetroLabel()
         Me.MetroLabel5 = New MetroFramework.Controls.MetroLabel()
         Me.MetroLabel4 = New MetroFramework.Controls.MetroLabel()
@@ -36,12 +35,17 @@ Partial Class add_prodForm
         Me.MetroPanel1 = New MetroFramework.Controls.MetroPanel()
         Me.btn_deleteProd = New MetroFramework.Controls.MetroButton()
         Me.btn_prodAdd = New MetroFramework.Controls.MetroButton()
+        Me.prodSup = New MetroFramework.Controls.MetroComboBox()
+        Me.MetroLabel6 = New MetroFramework.Controls.MetroLabel()
+        Me.stocksEntry = New MetroFramework.Controls.MetroTextBox()
         Me.MetroPanel2.SuspendLayout()
         Me.MetroPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MetroPanel2
         '
+        Me.MetroPanel2.Controls.Add(Me.MetroLabel6)
+        Me.MetroPanel2.Controls.Add(Me.stocksEntry)
         Me.MetroPanel2.Controls.Add(Me.prodSup)
         Me.MetroPanel2.Controls.Add(Me.MetroLabel1)
         Me.MetroPanel2.Controls.Add(Me.MetroLabel5)
@@ -64,21 +68,11 @@ Partial Class add_prodForm
         Me.MetroPanel2.VerticalScrollbarHighlightOnWheel = False
         Me.MetroPanel2.VerticalScrollbarSize = 10
         '
-        'prodSup
-        '
-        Me.prodSup.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.prodSup.FormattingEnabled = True
-        Me.prodSup.ItemHeight = 23
-        Me.prodSup.Location = New System.Drawing.Point(17, 234)
-        Me.prodSup.Name = "prodSup"
-        Me.prodSup.Size = New System.Drawing.Size(425, 29)
-        Me.prodSup.TabIndex = 13
-        '
         'MetroLabel1
         '
         Me.MetroLabel1.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.MetroLabel1.AutoSize = True
-        Me.MetroLabel1.Location = New System.Drawing.Point(17, 212)
+        Me.MetroLabel1.Location = New System.Drawing.Point(17, 261)
         Me.MetroLabel1.Name = "MetroLabel1"
         Me.MetroLabel1.Size = New System.Drawing.Size(57, 19)
         Me.MetroLabel1.TabIndex = 12
@@ -194,6 +188,35 @@ Partial Class add_prodForm
         Me.btn_prodAdd.TabIndex = 2
         Me.btn_prodAdd.Text = "CONFIRM"
         '
+        'prodSup
+        '
+        Me.prodSup.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.prodSup.FormattingEnabled = True
+        Me.prodSup.ItemHeight = 23
+        Me.prodSup.Location = New System.Drawing.Point(17, 283)
+        Me.prodSup.Name = "prodSup"
+        Me.prodSup.Size = New System.Drawing.Size(425, 29)
+        Me.prodSup.TabIndex = 13
+        '
+        'MetroLabel6
+        '
+        Me.MetroLabel6.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.MetroLabel6.AutoSize = True
+        Me.MetroLabel6.Location = New System.Drawing.Point(17, 214)
+        Me.MetroLabel6.Name = "MetroLabel6"
+        Me.MetroLabel6.Size = New System.Drawing.Size(45, 19)
+        Me.MetroLabel6.TabIndex = 15
+        Me.MetroLabel6.Text = "Stocks"
+        '
+        'stocksEntry
+        '
+        Me.stocksEntry.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.stocksEntry.Location = New System.Drawing.Point(17, 234)
+        Me.stocksEntry.MaxLength = 11
+        Me.stocksEntry.Name = "stocksEntry"
+        Me.stocksEntry.Size = New System.Drawing.Size(425, 23)
+        Me.stocksEntry.TabIndex = 14
+        '
         'add_prodForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -223,4 +246,6 @@ Partial Class add_prodForm
     Friend WithEvents btn_prodAdd As MetroFramework.Controls.MetroButton
     Friend WithEvents MetroLabel1 As MetroFramework.Controls.MetroLabel
     Friend WithEvents prodSup As MetroFramework.Controls.MetroComboBox
+    Friend WithEvents MetroLabel6 As MetroFramework.Controls.MetroLabel
+    Friend WithEvents stocksEntry As MetroFramework.Controls.MetroTextBox
 End Class

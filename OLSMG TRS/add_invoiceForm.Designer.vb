@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class add_invoiceForm
     Inherits System.Windows.Forms.UserControl
 
     'UserControl overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,9 +20,9 @@ Partial Class add_invoiceForm
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.MetroPanel2 = New MetroFramework.Controls.MetroPanel()
         Me.invDate = New System.Windows.Forms.DateTimePicker()
         Me.invCusName = New MetroFramework.Controls.MetroComboBox()
@@ -48,6 +48,7 @@ Partial Class add_invoiceForm
         Me.orderName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.orderAmount = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.orderUnitPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.stocks = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MetroPanel2.SuspendLayout()
         Me.MetroPanel1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -226,7 +227,7 @@ Partial Class add_invoiceForm
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.orderNum, Me.orderName, Me.orderAmount, Me.orderUnitPrice})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.orderNum, Me.orderName, Me.orderAmount, Me.orderUnitPrice, Me.stocks})
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 39)
         Me.DataGridView1.Name = "DataGridView1"
@@ -294,6 +295,7 @@ Partial Class add_invoiceForm
         Me.orderName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.orderName.HeaderText = "Product"
         Me.orderName.Name = "orderName"
+        Me.orderName.ReadOnly = True
         '
         'orderAmount
         '
@@ -305,11 +307,20 @@ Partial Class add_invoiceForm
         'orderUnitPrice
         '
         Me.orderUnitPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.orderUnitPrice.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.orderUnitPrice.DefaultCellStyle = DataGridViewCellStyle1
         Me.orderUnitPrice.HeaderText = "Price"
         Me.orderUnitPrice.Name = "orderUnitPrice"
+        Me.orderUnitPrice.ReadOnly = True
         Me.orderUnitPrice.Width = 56
+        '
+        'stocks
+        '
+        Me.stocks.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.stocks.HeaderText = "Stocks"
+        Me.stocks.Name = "stocks"
+        Me.stocks.ReadOnly = True
+        Me.stocks.Width = 65
         '
         'add_invoiceForm
         '
@@ -356,4 +367,5 @@ Partial Class add_invoiceForm
     Friend WithEvents orderName As DataGridViewTextBoxColumn
     Friend WithEvents orderAmount As DataGridViewTextBoxColumn
     Friend WithEvents orderUnitPrice As DataGridViewTextBoxColumn
+    Friend WithEvents stocks As DataGridViewTextBoxColumn
 End Class
