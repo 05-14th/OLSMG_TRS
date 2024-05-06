@@ -140,7 +140,11 @@ Public Class add_invoiceForm
             Dim reader As MySqlDataReader = command.ExecuteReader()
             invCusName.Items.Clear()
             While reader.Read()
-                invCusName.Items.Add($"{reader.GetString("c_lname")}, {reader.GetString("c_fname")}, {reader.GetString("c_mi")}")
+                If reader.GetString("c_mi") = Nothing Then
+                    invCusName.Items.Add($"{reader.GetString("c_lname")}, {reader.GetString("c_fname")}")
+                Else
+                    invCusName.Items.Add($"{reader.GetString("c_lname")}, {reader.GetString("c_fname")}, {reader.GetString("c_mi")}")
+                End If
             End While
             reader.Close()
         Catch ex As Exception
@@ -158,7 +162,11 @@ Public Class add_invoiceForm
             Dim reader As MySqlDataReader = command.ExecuteReader()
             invEmpName.Items.Clear()
             While reader.Read()
-                invEmpName.Items.Add($"{reader.GetString("emp_lname")}, {reader.GetString("emp_fname")}, {reader.GetString("emp_mi")}")
+                If reader.GetString("emp_mi") = Nothing Then
+                    invEmpName.Items.Add($"{reader.GetString("emp_lname")}, {reader.GetString("emp_fname")}")
+                Else
+                    invEmpName.Items.Add($"{reader.GetString("emp_lname")}, {reader.GetString("emp_fname")}, {reader.GetString("emp_mi")}")
+                End If
             End While
             reader.Close()
         Catch ex As Exception

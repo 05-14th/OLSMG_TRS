@@ -120,4 +120,8 @@ Public Class add_cusForm
         End If
 
     End Sub
+
+    Private Sub c_mi_Click(sender As Object, e As EventArgs) Handles c_mi.Click
+
+    End Sub
 End Class

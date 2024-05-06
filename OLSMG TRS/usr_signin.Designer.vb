@@ -27,7 +27,9 @@ Partial Class usr_signin
         Me.passText = New MetroFramework.Controls.MetroTextBox()
         Me.userText = New MetroFramework.Controls.MetroTextBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btn_login
@@ -69,10 +71,22 @@ Partial Class usr_signin
         Me.PictureBox1.TabIndex = 13
         Me.PictureBox1.TabStop = False
         '
+        'PictureBox2
+        '
+        Me.PictureBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
+        Me.PictureBox2.Location = New System.Drawing.Point(121, 330)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(90, 72)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox2.TabIndex = 14
+        Me.PictureBox2.TabStop = False
+        '
         'usr_signin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btn_login)
         Me.Controls.Add(Me.passText)
@@ -80,6 +94,7 @@ Partial Class usr_signin
         Me.Name = "usr_signin"
         Me.Size = New System.Drawing.Size(335, 405)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -87,4 +102,5 @@ Partial Class usr_signin
     Friend WithEvents passText As MetroFramework.Controls.MetroTextBox
     Friend WithEvents userText As MetroFramework.Controls.MetroTextBox
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents PictureBox2 As PictureBox
 End Class

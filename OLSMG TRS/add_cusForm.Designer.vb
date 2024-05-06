@@ -26,6 +26,8 @@ Partial Class add_cusForm
         Me.btn_deleteCus = New MetroFramework.Controls.MetroButton()
         Me.btn_cusAdd = New MetroFramework.Controls.MetroButton()
         Me.MetroPanel2 = New MetroFramework.Controls.MetroPanel()
+        Me.MetroLabel1 = New MetroFramework.Controls.MetroLabel()
+        Me.emailText = New MetroFramework.Controls.MetroTextBox()
         Me.MetroLabel5 = New MetroFramework.Controls.MetroLabel()
         Me.MetroLabel4 = New MetroFramework.Controls.MetroLabel()
         Me.MetroLabel3 = New MetroFramework.Controls.MetroLabel()
@@ -34,8 +36,6 @@ Partial Class add_cusForm
         Me.c_mi = New MetroFramework.Controls.MetroTextBox()
         Me.c_fname = New MetroFramework.Controls.MetroTextBox()
         Me.c_lname = New MetroFramework.Controls.MetroTextBox()
-        Me.MetroLabel1 = New MetroFramework.Controls.MetroLabel()
-        Me.emailText = New MetroFramework.Controls.MetroTextBox()
         Me.MetroPanel1.SuspendLayout()
         Me.MetroPanel2.SuspendLayout()
         Me.SuspendLayout()
@@ -97,6 +97,25 @@ Partial Class add_cusForm
         Me.MetroPanel2.VerticalScrollbarBarColor = True
         Me.MetroPanel2.VerticalScrollbarHighlightOnWheel = False
         Me.MetroPanel2.VerticalScrollbarSize = 10
+        '
+        'MetroLabel1
+        '
+        Me.MetroLabel1.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.MetroLabel1.AutoSize = True
+        Me.MetroLabel1.Location = New System.Drawing.Point(17, 192)
+        Me.MetroLabel1.Name = "MetroLabel1"
+        Me.MetroLabel1.Size = New System.Drawing.Size(41, 19)
+        Me.MetroLabel1.TabIndex = 12
+        Me.MetroLabel1.Text = "Email"
+        '
+        'emailText
+        '
+        Me.emailText.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.emailText.Location = New System.Drawing.Point(17, 212)
+        Me.emailText.MaxLength = 255
+        Me.emailText.Name = "emailText"
+        Me.emailText.Size = New System.Drawing.Size(288, 23)
+        Me.emailText.TabIndex = 11
         '
         'MetroLabel5
         '
@@ -173,25 +192,6 @@ Partial Class add_cusForm
         Me.c_lname.Name = "c_lname"
         Me.c_lname.Size = New System.Drawing.Size(288, 23)
         Me.c_lname.TabIndex = 2
-        '
-        'MetroLabel1
-        '
-        Me.MetroLabel1.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.MetroLabel1.AutoSize = True
-        Me.MetroLabel1.Location = New System.Drawing.Point(17, 192)
-        Me.MetroLabel1.Name = "MetroLabel1"
-        Me.MetroLabel1.Size = New System.Drawing.Size(41, 19)
-        Me.MetroLabel1.TabIndex = 12
-        Me.MetroLabel1.Text = "Email"
-        '
-        'emailText
-        '
-        Me.emailText.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.emailText.Location = New System.Drawing.Point(17, 212)
-        Me.emailText.MaxLength = 255
-        Me.emailText.Name = "emailText"
-        Me.emailText.Size = New System.Drawing.Size(288, 23)
-        Me.emailText.TabIndex = 11
         '
         'add_cusForm
         '

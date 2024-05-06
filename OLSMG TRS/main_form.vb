@@ -4,12 +4,12 @@ Imports Mysqlx
 Public Class main_form
     Dim invoiceCount As Integer
     Dim inventoryCount As Integer
+    Public signedUser As String
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ConnectToDB()
         load_order_dgv()
-
-
+        currentUser.Text = signedUser
     End Sub
     Private Sub closeButton_Click(sender As Object, e As EventArgs) Handles closeButton.Click
         Dim intResponse As Integer
@@ -126,5 +126,15 @@ Public Class main_form
 
     Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
         Me.WindowState = FormWindowState.Minimized
+    End Sub
+
+    Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles Settings.Click
+        Dim settingsForm As New subForm()
+        settingsForm.subForm_panel.Controls.Clear()
+        Dim myUserSettings As New usr_settings()
+        myUserSettings.Dock = DockStyle.Fill
+        settingsForm.Size = New Size(400, 500)
+        settingsForm.subForm_panel.Controls.Add(myUserSettings)
+        settingsForm.ShowDialog()
     End Sub
 End Class

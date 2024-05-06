@@ -25,10 +25,12 @@ Partial Class main_form
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(main_form))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.closeButton = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Settings = New System.Windows.Forms.PictureBox()
         Me.btn_employee = New System.Windows.Forms.Label()
         Me.btn_suppliers = New System.Windows.Forms.Label()
         Me.btn_customers = New System.Windows.Forms.Label()
@@ -39,16 +41,18 @@ Partial Class main_form
         Me.btn_invoice = New MetroFramework.Controls.MetroButton()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.mainPanel = New System.Windows.Forms.Panel()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.currentUser = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
+        CType(Me.Settings, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.currentUser)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.PictureBox1)
@@ -59,11 +63,23 @@ Partial Class main_form
         Me.Panel1.Size = New System.Drawing.Size(932, 80)
         Me.Panel1.TabIndex = 1
         '
+        'Label2
+        '
+        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label2.AutoSize = True
+        Me.Label2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(882, 9)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(12, 15)
+        Me.Label2.TabIndex = 3
+        Me.Label2.Text = "-"
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe Script", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(91, 14)
+        Me.Label1.Location = New System.Drawing.Point(91, 7)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(240, 53)
         Me.Label1.TabIndex = 2
@@ -94,6 +110,7 @@ Partial Class main_form
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.Settings)
         Me.Panel2.Controls.Add(Me.btn_employee)
         Me.Panel2.Controls.Add(Me.btn_suppliers)
         Me.Panel2.Controls.Add(Me.btn_customers)
@@ -103,6 +120,17 @@ Partial Class main_form
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(932, 36)
         Me.Panel2.TabIndex = 2
+        '
+        'Settings
+        '
+        Me.Settings.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Settings.Image = CType(resources.GetObject("Settings.Image"), System.Drawing.Image)
+        Me.Settings.Location = New System.Drawing.Point(2, -7)
+        Me.Settings.Name = "Settings"
+        Me.Settings.Size = New System.Drawing.Size(49, 49)
+        Me.Settings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.Settings.TabIndex = 4
+        Me.Settings.TabStop = False
         '
         'btn_employee
         '
@@ -203,17 +231,15 @@ Partial Class main_form
         Me.mainPanel.Size = New System.Drawing.Size(696, 423)
         Me.mainPanel.TabIndex = 5
         '
-        'Label2
+        'currentUser
         '
-        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label2.AutoSize = True
-        Me.Label2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(882, 9)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(12, 15)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "-"
+        Me.currentUser.AutoSize = True
+        Me.currentUser.Font = New System.Drawing.Font("Consolas", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.currentUser.Location = New System.Drawing.Point(101, 55)
+        Me.currentUser.Name = "currentUser"
+        Me.currentUser.Size = New System.Drawing.Size(56, 18)
+        Me.currentUser.TabIndex = 4
+        Me.currentUser.Text = "Label3"
         '
         'main_form
         '
@@ -236,6 +262,7 @@ Partial Class main_form
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        CType(Me.Settings, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.ResumeLayout(False)
 
@@ -256,4 +283,6 @@ Partial Class main_form
     Friend WithEvents btn_employee As Label
     Friend WithEvents mainPanel As Panel
     Friend WithEvents Label2 As Label
+    Friend WithEvents Settings As PictureBox
+    Friend WithEvents currentUser As Label
 End Class
