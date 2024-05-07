@@ -265,6 +265,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Settings.vb" />
     <Compile Include="subForm.Designer.vb">
       <DependentUpon>subForm.vb</DependentUpon>
     </Compile>
@@ -283,11 +284,11 @@
     <Compile Include="add_prodForm.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="userViewForm.Designer.vb">
-      <DependentUpon>userViewForm.vb</DependentUpon>
+    <Compile Include="usr_connection.Designer.vb">
+      <DependentUpon>usr_connection.vb</DependentUpon>
     </Compile>
-    <Compile Include="userViewForm.vb">
-      <SubType>Form</SubType>
+    <Compile Include="usr_connection.vb">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="usr_customer.Designer.vb">
       <DependentUpon>usr_customer.vb</DependentUpon>
@@ -396,8 +397,8 @@
     <EmbeddedResource Include="add_prodForm.resx">
       <DependentUpon>add_prodForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="userViewForm.resx">
-      <DependentUpon>userViewForm.vb</DependentUpon>
+    <EmbeddedResource Include="usr_connection.resx">
+      <DependentUpon>usr_connection.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="usr_customer.resx">
       <DependentUpon>usr_customer.vb</DependentUpon>
@@ -446,7 +447,7 @@
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
     <None Include="My Project\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
@@ -468,6 +469,7 @@
     <Content Include="Content\metro.min.css" />
     <Content Include="Fonts\metro.svg" />
     <Content Include="MetroFramework.txt" />
+    <None Include="Resources\logo_circle.png" />
     <Content Include="Scripts\metro.js" />
     <Content Include="Scripts\metro.min.js" />
   </ItemGroup>

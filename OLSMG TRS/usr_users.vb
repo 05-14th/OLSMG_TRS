@@ -89,6 +89,7 @@ Public Class usr_users
                         editUserForm.cnumText.Text = dr.Item("user_cnum").ToString()
                         editUserForm.cb_roles.Text = dr.Item("user_role").ToString()
                         editUserForm.mode = 1
+                        editUserForm.id_label.Text = dr.Item("user_id").ToString()
                         editUserForm.userName = firstCellValue
                         editUserForm.userEmail = secondCellValue
                         editUserForm.userContact = thirdCellValue

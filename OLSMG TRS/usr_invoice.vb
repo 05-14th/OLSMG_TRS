@@ -1,4 +1,5 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.Drawing.Printing
+Imports MySql.Data.MySqlClient
 Imports Org.BouncyCastle.Math.EC
 
 Public Class usr_invoice
@@ -149,4 +150,21 @@ Public Class usr_invoice
     End Sub
 
 
+
+
+    Private Sub cb_generateReport_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_generateReport.SelectedIndexChanged
+        If cb_generateReport.Text = "Monthly" Then
+            Dim exportMonthly As Integer
+            exportMonthly = MsgBox("Do you want to export monthly report?", vbYesNo + vbQuestion, "Export")
+            If exportMonthly = vbYes Then
+
+            End If
+        ElseIf cb_generateReport.Text = "Yearly" Then
+            Dim exportYearly As Integer
+            exportYearly = MsgBox("Do you want to export monthly report?", vbYesNo + vbQuestion, "Export")
+            If exportYearly = vbYes Then
+
+            End If
+        End If
+    End Sub
 End Class

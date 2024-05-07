@@ -66,7 +66,7 @@ Public Class usr_customer
             dr.Close()
             cn.Close()
         Catch ex As Exception
-            MsgBox(ex.Message)
+            MsgBox("Unknown Error: " & ex.Message, vbCritical, "Unknown Error")
             cn.Close()
         End Try
     End Sub

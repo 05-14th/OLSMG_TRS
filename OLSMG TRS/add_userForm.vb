@@ -140,6 +140,31 @@ Public Class add_userForm
         End Try
     End Sub
 
+    Sub update()
+        Try
+            dr.Close()
+            Dim deactivateAccount As New MySqlCommand("UPDATE olsmg_users SET user_fullname=@uf,  user_uname = @uu, user_email = @ue, user_cnum = @uc WHERE  user_id = @ui", cn)
+            deactivateAccount.Parameters.AddWithValue("@uf", fullnameText.Text)
+            deactivateAccount.Parameters.AddWithValue("@uu", unameText.Text)
+            deactivateAccount.Parameters.AddWithValue("@ue", emailText.Text)
+            deactivateAccount.Parameters.AddWithValue("@uc", cnumText.Text)
+            deactivateAccount.Parameters.AddWithValue("@ui", id_label.Text)
+            deactivateAccount.ExecuteNonQuery()
+            MsgBox("Account updated Successfully", vbInformation, "Success")
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            If cn.State <> ConnectionState.Closed Then
+                cn.Close()
+                main_form.mainPanel.Controls.Clear()
+                Dim Users As New usr_users()
+                Users.Dock = DockStyle.Fill
+                main_form.mainPanel.Controls.Add(Users)
+                CloseForm()
+            End If
+        End Try
+    End Sub
+
     Sub delete()
         Try
             dr.Close()
@@ -251,4 +276,11 @@ Public Class add_userForm
         End If
     End Sub
 
+    Private Sub btn_update_Click(sender As Object, e As EventArgs) Handles btn_confirm.Click
+        Dim permission As Integer
+        permission = MsgBox("Are you sure you want to save the info for this account?", vbYesNo + vbQuestion, "Edit Successful")
+        If permission = vbYes Then
+            update()
+        End If
+    End Sub
 End Class

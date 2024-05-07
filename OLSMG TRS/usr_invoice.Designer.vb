@@ -22,7 +22,7 @@ Partial Class usr_invoice
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(usr_invoice))
         Me.MetroPanel2 = New MetroFramework.Controls.MetroPanel()
         Me.search_inv = New MetroFramework.Controls.MetroTextBox()
@@ -35,12 +35,14 @@ Partial Class usr_invoice
         Me.invoiceEmpName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.invoiceRefNum = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.invoiceAction = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.cb_generateReport = New MetroFramework.Controls.MetroComboBox()
         Me.MetroPanel2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MetroPanel2
         '
+        Me.MetroPanel2.Controls.Add(Me.cb_generateReport)
         Me.MetroPanel2.Controls.Add(Me.search_inv)
         Me.MetroPanel2.Controls.Add(Me.btn_addInv)
         Me.MetroPanel2.Dock = System.Windows.Forms.DockStyle.Top
@@ -103,17 +105,17 @@ Partial Class usr_invoice
         Me.invoiceDataIssure.HeaderText = "Date Issue"
         Me.invoiceDataIssure.Name = "invoiceDataIssure"
         Me.invoiceDataIssure.ReadOnly = True
-        Me.invoiceDataIssure.Width = 83
+        Me.invoiceDataIssure.Width = 77
         '
         'invoiceTotalAmount
         '
         Me.invoiceTotalAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        Me.invoiceTotalAmount.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        Me.invoiceTotalAmount.DefaultCellStyle = DataGridViewCellStyle2
         Me.invoiceTotalAmount.HeaderText = "Total Amount"
         Me.invoiceTotalAmount.Name = "invoiceTotalAmount"
         Me.invoiceTotalAmount.ReadOnly = True
-        Me.invoiceTotalAmount.Width = 95
+        Me.invoiceTotalAmount.Width = 88
         '
         'invoiceCusName
         '
@@ -149,6 +151,18 @@ Partial Class usr_invoice
         Me.invoiceAction.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.invoiceAction.Width = 62
         '
+        'cb_generateReport
+        '
+        Me.cb_generateReport.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cb_generateReport.FormattingEnabled = True
+        Me.cb_generateReport.ItemHeight = 23
+        Me.cb_generateReport.Items.AddRange(New Object() {"Monthly", "Yearly"})
+        Me.cb_generateReport.Location = New System.Drawing.Point(123, 4)
+        Me.cb_generateReport.Name = "cb_generateReport"
+        Me.cb_generateReport.Size = New System.Drawing.Size(164, 29)
+        Me.cb_generateReport.TabIndex = 4
+        '
         'usr_invoice
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -174,4 +188,5 @@ Partial Class usr_invoice
     Friend WithEvents invoiceEmpName As DataGridViewTextBoxColumn
     Friend WithEvents invoiceRefNum As DataGridViewTextBoxColumn
     Friend WithEvents invoiceAction As DataGridViewImageColumn
+    Friend WithEvents cb_generateReport As MetroFramework.Controls.MetroComboBox
 End Class

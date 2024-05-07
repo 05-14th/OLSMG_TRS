@@ -43,51 +43,86 @@ Public Class main_form
     End Sub
 
     Private Sub load_order_dgv()
-        mainPanel.Controls.Clear()
-        Dim myUserOrder As New usr_order()
-        myUserOrder.Dock = DockStyle.Fill
-        mainPanel.Controls.Add(myUserOrder)
+        Try
+            mainPanel.Controls.Clear()
+            Dim myUserOrder As New usr_order()
+            myUserOrder.Dock = DockStyle.Fill
+            mainPanel.Controls.Add(myUserOrder)
+        Catch ex As Exception
+            MsgBox("Graphicals Error. Restarting Application", vbCritical, "Graphics Error")
+            Application.Restart()
+        End Try
     End Sub
 
     Private Sub load_inventory_dgv()
-        mainPanel.Controls.Clear()
-        Dim myUserInventory As New usr_inventory()
-        myUserInventory.Dock = DockStyle.Fill
-        mainPanel.Controls.Add(myUserInventory)
+        Try
+            mainPanel.Controls.Clear()
+            Dim myUserInventory As New usr_inventory()
+            myUserInventory.Dock = DockStyle.Fill
+            mainPanel.Controls.Add(myUserInventory)
+        Catch ex As Exception
+            MsgBox("Graphicals Error. Restarting Application", vbCritical, "Graphics Error")
+            Application.Restart()
+        End Try
     End Sub
 
     Private Sub load_invoice_dgv()
-        mainPanel.Controls.Clear()
-        Dim myUserInvoice As New usr_invoice()
-        myUserInvoice.Dock = DockStyle.Fill
-        mainPanel.Controls.Add(myUserInvoice)
+        Try
+            mainPanel.Controls.Clear()
+            Dim myUserInvoice As New usr_invoice()
+            myUserInvoice.Dock = DockStyle.Fill
+            mainPanel.Controls.Add(myUserInvoice)
+        Catch ex As Exception
+            MsgBox("Graphicals Error. Restarting Application", vbCritical, "Graphics Error")
+            Application.Restart()
+        End Try
     End Sub
 
     Private Sub load_customer_dgv()
-        mainPanel.Controls.Clear()
-        Dim myUserCus As New usr_customer()
-        myUserCus.Dock = DockStyle.Fill
-        mainPanel.Controls.Add(myUserCus)
+        Try
+            mainPanel.Controls.Clear()
+            Dim myUserCus As New usr_customer()
+            myUserCus.Dock = DockStyle.Fill
+            mainPanel.Controls.Add(myUserCus)
+        Catch ex As Exception
+            MsgBox("Graphicals Error. Restarting Application", vbCritical, "Graphics Error")
+            Application.Restart()
+        End Try
     End Sub
 
     Private Sub load_employee_dgv()
-        mainPanel.Controls.Clear()
-        Dim myUserEmp As New usr_employee()
-        myUserEmp.Dock = DockStyle.Fill
-        mainPanel.Controls.Add(myUserEmp)
+        Try
+            mainPanel.Controls.Clear()
+            Dim myUserEmp As New usr_employee()
+            myUserEmp.Dock = DockStyle.Fill
+            mainPanel.Controls.Add(myUserEmp)
+        Catch ex As Exception
+            MsgBox("Graphicals Error. Restarting Application", vbCritical, "Graphics Error")
+            Application.Restart()
+        End Try
     End Sub
     Private Sub load_supplier_dgv()
-        mainPanel.Controls.Clear()
-        Dim myUserSupplier As New usr_suppliers()
-        myUserSupplier.Dock = DockStyle.Fill
-        mainPanel.Controls.Add(myUserSupplier)
+        Try
+            mainPanel.Controls.Clear()
+            Dim myUserSupplier As New usr_suppliers()
+            myUserSupplier.Dock = DockStyle.Fill
+            mainPanel.Controls.Add(myUserSupplier)
+        Catch ex As Exception
+            MsgBox("Graphicals Error. Restarting Application", vbCritical, "Graphics Error")
+            Application.Restart()
+        End Try
     End Sub
 
     Private Sub load_users_dgv()
-        mainPanel.Controls.Clear()
-        Dim myUser As New usr_users()
-        myUser.Dock = DockStyle.Fill
-        mainPanel.Controls.Add(myUser)
+        Try
+            mainPanel.Controls.Clear()
+            Dim myUser As New usr_users()
+            myUser.Dock = DockStyle.Fill
+            mainPanel.Controls.Add(myUser)
+        Catch ex As Exception
+            MsgBox("Graphicals Error. Restarting Application", vbCritical, "Graphics Error")
+            Application.Restart()
+        End Try
     End Sub
 
     Private Sub btn_orders_Click(sender As Object, e As EventArgs) Handles btn_order.Click
@@ -136,5 +171,9 @@ Public Class main_form
         settingsForm.Size = New Size(400, 500)
         settingsForm.subForm_panel.Controls.Add(myUserSettings)
         settingsForm.ShowDialog()
+    End Sub
+
+    Private Sub btn_logout_Click(sender As Object, e As EventArgs) Handles btn_logout.Click
+        Application.Restart()
     End Sub
 End Class

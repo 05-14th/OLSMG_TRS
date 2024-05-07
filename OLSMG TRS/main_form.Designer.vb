@@ -25,6 +25,7 @@ Partial Class main_form
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(main_form))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.currentUser = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -41,7 +42,7 @@ Partial Class main_form
         Me.btn_invoice = New MetroFramework.Controls.MetroButton()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.mainPanel = New System.Windows.Forms.Panel()
-        Me.currentUser = New System.Windows.Forms.Label()
+        Me.btn_logout = New MetroFramework.Controls.MetroButton()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -62,6 +63,16 @@ Partial Class main_form
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(932, 80)
         Me.Panel1.TabIndex = 1
+        '
+        'currentUser
+        '
+        Me.currentUser.AutoSize = True
+        Me.currentUser.Font = New System.Drawing.Font("Consolas", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.currentUser.Location = New System.Drawing.Point(101, 55)
+        Me.currentUser.Name = "currentUser"
+        Me.currentUser.Size = New System.Drawing.Size(56, 18)
+        Me.currentUser.TabIndex = 4
+        Me.currentUser.Text = "Label3"
         '
         'Label2
         '
@@ -214,6 +225,7 @@ Partial Class main_form
         '
         'Panel3
         '
+        Me.Panel3.Controls.Add(Me.btn_logout)
         Me.Panel3.Controls.Add(Me.btn_invoice)
         Me.Panel3.Controls.Add(Me.btn_inventory)
         Me.Panel3.Controls.Add(Me.btn_order)
@@ -231,15 +243,15 @@ Partial Class main_form
         Me.mainPanel.Size = New System.Drawing.Size(696, 423)
         Me.mainPanel.TabIndex = 5
         '
-        'currentUser
+        'btn_logout
         '
-        Me.currentUser.AutoSize = True
-        Me.currentUser.Font = New System.Drawing.Font("Consolas", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.currentUser.Location = New System.Drawing.Point(101, 55)
-        Me.currentUser.Name = "currentUser"
-        Me.currentUser.Size = New System.Drawing.Size(56, 18)
-        Me.currentUser.TabIndex = 4
-        Me.currentUser.Text = "Label3"
+        Me.btn_logout.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btn_logout.Location = New System.Drawing.Point(3, 376)
+        Me.btn_logout.Name = "btn_logout"
+        Me.btn_logout.Size = New System.Drawing.Size(230, 44)
+        Me.btn_logout.TabIndex = 6
+        Me.btn_logout.Text = "Logout"
         '
         'main_form
         '
@@ -285,4 +297,5 @@ Partial Class main_form
     Friend WithEvents Label2 As Label
     Friend WithEvents Settings As PictureBox
     Friend WithEvents currentUser As Label
+    Friend WithEvents btn_logout As MetroFramework.Controls.MetroButton
 End Class

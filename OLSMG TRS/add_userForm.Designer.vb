@@ -36,6 +36,7 @@ Partial Class add_userForm
         Me.btn_confirm = New MetroFramework.Controls.MetroButton()
         Me.btn_delete = New MetroFramework.Controls.MetroButton()
         Me.btn_activate = New MetroFramework.Controls.MetroButton()
+        Me.id_label = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'fullnameText
@@ -172,10 +173,21 @@ Partial Class add_userForm
         Me.btn_activate.Text = "Activate"
         Me.btn_activate.Visible = False
         '
+        'id_label
+        '
+        Me.id_label.AutoSize = True
+        Me.id_label.Location = New System.Drawing.Point(190, 260)
+        Me.id_label.Name = "id_label"
+        Me.id_label.Size = New System.Drawing.Size(39, 13)
+        Me.id_label.TabIndex = 18
+        Me.id_label.Text = "Label1"
+        Me.id_label.Visible = False
+        '
         'add_userForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.id_label)
         Me.Controls.Add(Me.btn_activate)
         Me.Controls.Add(Me.btn_delete)
         Me.Controls.Add(Me.btn_confirm)
@@ -211,4 +223,5 @@ Partial Class add_userForm
     Friend WithEvents btn_confirm As MetroFramework.Controls.MetroButton
     Friend WithEvents btn_delete As MetroFramework.Controls.MetroButton
     Friend WithEvents btn_activate As MetroFramework.Controls.MetroButton
+    Friend WithEvents id_label As Label
 End Class

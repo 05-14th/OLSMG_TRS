@@ -14,10 +14,16 @@ Module Module1
     Public da1 As MySqlDataAdapter
     Public ds As DataSet
     Dim mainForm As New main_form
+    'Connection
+    Public server As String
+    Public user As String
+    Public password As String
+    Public database As String
+
     Public Sub ConnectToDB()
         Try
             With cn
-                .ConnectionString = "server=localhost; user id=root; password=; database=olsmg_db"
+                .ConnectionString = $"server='{My.Settings.olsmgServer}'; user id='{My.Settings.olsmgUsername}'; password='{My.Settings.olsmgPassword}'; database='{My.Settings.olsmgDBName}'"
                 .Open()
             End With
             cn.Close()
