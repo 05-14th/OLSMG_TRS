@@ -28,6 +28,7 @@ Partial Class usr_recovery
         Me.Username = New MetroFramework.Controls.MetroTextBox()
         Me.Password = New MetroFramework.Controls.MetroTextBox()
         Me.Login = New MetroFramework.Controls.MetroButton()
+        Me.MetroCheckBox1 = New MetroFramework.Controls.MetroCheckBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -69,7 +70,7 @@ Partial Class usr_recovery
         '
         Me.Password.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Password.Location = New System.Drawing.Point(26, 295)
+        Me.Password.Location = New System.Drawing.Point(26, 286)
         Me.Password.Name = "Password"
         Me.Password.Size = New System.Drawing.Size(338, 23)
         Me.Password.TabIndex = 3
@@ -85,10 +86,21 @@ Partial Class usr_recovery
         Me.Login.TabIndex = 4
         Me.Login.Text = "Sign In"
         '
+        'MetroCheckBox1
+        '
+        Me.MetroCheckBox1.AutoSize = True
+        Me.MetroCheckBox1.Location = New System.Drawing.Point(26, 316)
+        Me.MetroCheckBox1.Name = "MetroCheckBox1"
+        Me.MetroCheckBox1.Size = New System.Drawing.Size(105, 15)
+        Me.MetroCheckBox1.TabIndex = 5
+        Me.MetroCheckBox1.Text = "Show Password"
+        Me.MetroCheckBox1.UseVisualStyleBackColor = True
+        '
         'usr_recovery
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.MetroCheckBox1)
         Me.Controls.Add(Me.Login)
         Me.Controls.Add(Me.Password)
         Me.Controls.Add(Me.Username)
@@ -107,4 +119,5 @@ Partial Class usr_recovery
     Friend WithEvents Username As MetroFramework.Controls.MetroTextBox
     Friend WithEvents Password As MetroFramework.Controls.MetroTextBox
     Friend WithEvents Login As MetroFramework.Controls.MetroButton
+    Friend WithEvents MetroCheckBox1 As MetroFramework.Controls.MetroCheckBox
 End Class

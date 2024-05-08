@@ -30,6 +30,8 @@ Public Class usr_signin
             MsgBox("Error with the database please contact the administrator for maintenance.", vbCritical, "Database Error")
             disableLogin()
         End If
+
+        '
     End Sub
 
     Private Sub disableLogin()
@@ -48,6 +50,7 @@ Public Class usr_signin
     Private Sub passText_Click(sender As Object, e As EventArgs) Handles passText.Click
         If passText.Text = "Password" Then
             passText.Text = ""
+            passText.UseSystemPasswordChar = True
         End If
     End Sub
 
@@ -126,5 +129,13 @@ Public Class usr_signin
         settingsForm.subForm_panel.Controls.Add(adminAuth)
         login_form.Hide()
         settingsForm.ShowDialog()
+    End Sub
+
+    Private Sub showPass_CheckedChanged(sender As Object, e As EventArgs) Handles showPass.CheckedChanged
+        If showPass.Checked = True Then
+            passText.UseSystemPasswordChar = False
+        Else
+            passText.UseSystemPasswordChar = True
+        End If
     End Sub
 End Class

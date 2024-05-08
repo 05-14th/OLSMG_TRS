@@ -22,9 +22,12 @@ Partial Class usr_invoice
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(usr_invoice))
         Me.MetroPanel2 = New MetroFramework.Controls.MetroPanel()
+        Me.Save = New System.Windows.Forms.Button()
+        Me.cb_month = New MetroFramework.Controls.MetroComboBox()
+        Me.cb_year = New MetroFramework.Controls.MetroComboBox()
         Me.search_inv = New MetroFramework.Controls.MetroTextBox()
         Me.btn_addInv = New MetroFramework.Controls.MetroButton()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
@@ -35,14 +38,15 @@ Partial Class usr_invoice
         Me.invoiceEmpName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.invoiceRefNum = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.invoiceAction = New System.Windows.Forms.DataGridViewImageColumn()
-        Me.cb_generateReport = New MetroFramework.Controls.MetroComboBox()
         Me.MetroPanel2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MetroPanel2
         '
-        Me.MetroPanel2.Controls.Add(Me.cb_generateReport)
+        Me.MetroPanel2.Controls.Add(Me.Save)
+        Me.MetroPanel2.Controls.Add(Me.cb_month)
+        Me.MetroPanel2.Controls.Add(Me.cb_year)
         Me.MetroPanel2.Controls.Add(Me.search_inv)
         Me.MetroPanel2.Controls.Add(Me.btn_addInv)
         Me.MetroPanel2.Dock = System.Windows.Forms.DockStyle.Top
@@ -56,6 +60,39 @@ Partial Class usr_invoice
         Me.MetroPanel2.VerticalScrollbarBarColor = True
         Me.MetroPanel2.VerticalScrollbarHighlightOnWheel = False
         Me.MetroPanel2.VerticalScrollbarSize = 10
+        '
+        'Save
+        '
+        Me.Save.Location = New System.Drawing.Point(335, 7)
+        Me.Save.Name = "Save"
+        Me.Save.Size = New System.Drawing.Size(75, 23)
+        Me.Save.TabIndex = 6
+        Me.Save.Text = "Save"
+        Me.Save.UseVisualStyleBackColor = True
+        '
+        'cb_month
+        '
+        Me.cb_month.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cb_month.FormattingEnabled = True
+        Me.cb_month.ItemHeight = 23
+        Me.cb_month.Items.AddRange(New Object() {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"})
+        Me.cb_month.Location = New System.Drawing.Point(229, 4)
+        Me.cb_month.MaximumSize = New System.Drawing.Size(100, 0)
+        Me.cb_month.Name = "cb_month"
+        Me.cb_month.Size = New System.Drawing.Size(100, 29)
+        Me.cb_month.TabIndex = 5
+        '
+        'cb_year
+        '
+        Me.cb_year.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cb_year.FormattingEnabled = True
+        Me.cb_year.ItemHeight = 23
+        Me.cb_year.Items.AddRange(New Object() {"2030", "2029", "2028", "2027", "2026", "2025", "2024"})
+        Me.cb_year.Location = New System.Drawing.Point(123, 4)
+        Me.cb_year.MaximumSize = New System.Drawing.Size(100, 0)
+        Me.cb_year.Name = "cb_year"
+        Me.cb_year.Size = New System.Drawing.Size(100, 29)
+        Me.cb_year.TabIndex = 4
         '
         'search_inv
         '
@@ -110,8 +147,8 @@ Partial Class usr_invoice
         'invoiceTotalAmount
         '
         Me.invoiceTotalAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        Me.invoiceTotalAmount.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        Me.invoiceTotalAmount.DefaultCellStyle = DataGridViewCellStyle3
         Me.invoiceTotalAmount.HeaderText = "Total Amount"
         Me.invoiceTotalAmount.Name = "invoiceTotalAmount"
         Me.invoiceTotalAmount.ReadOnly = True
@@ -151,18 +188,6 @@ Partial Class usr_invoice
         Me.invoiceAction.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.invoiceAction.Width = 62
         '
-        'cb_generateReport
-        '
-        Me.cb_generateReport.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cb_generateReport.FormattingEnabled = True
-        Me.cb_generateReport.ItemHeight = 23
-        Me.cb_generateReport.Items.AddRange(New Object() {"Monthly", "Yearly"})
-        Me.cb_generateReport.Location = New System.Drawing.Point(123, 4)
-        Me.cb_generateReport.Name = "cb_generateReport"
-        Me.cb_generateReport.Size = New System.Drawing.Size(164, 29)
-        Me.cb_generateReport.TabIndex = 4
-        '
         'usr_invoice
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -188,5 +213,7 @@ Partial Class usr_invoice
     Friend WithEvents invoiceEmpName As DataGridViewTextBoxColumn
     Friend WithEvents invoiceRefNum As DataGridViewTextBoxColumn
     Friend WithEvents invoiceAction As DataGridViewImageColumn
-    Friend WithEvents cb_generateReport As MetroFramework.Controls.MetroComboBox
+    Friend WithEvents cb_year As MetroFramework.Controls.MetroComboBox
+    Friend WithEvents cb_month As MetroFramework.Controls.MetroComboBox
+    Friend WithEvents Save As Button
 End Class

@@ -1,6 +1,9 @@
 ﻿Imports System.Drawing.Printing
 Imports MySql.Data.MySqlClient
 Imports Org.BouncyCastle.Math.EC
+Imports System.IO
+Imports Excel = Microsoft.Office.Interop.Excel
+Imports System.Globalization
 
 Public Class usr_invoice
     Inherits UserControl
@@ -12,6 +15,7 @@ Public Class usr_invoice
     Sub LoadInvoice()
         Try
             Dim i As Integer = 0
+
             DataGridView1.Rows.Clear()
             cn.Open()
 
@@ -24,6 +28,7 @@ Public Class usr_invoice
                 DataGridView1.Rows.Add(i, dateWithoutTime, dr.Item("total_amount").ToString, dr.Item("cus_name").ToString, dr.Item("employee_name").ToString, dr.Item("reference_num").ToString)
             End While
             DataGridView1.Sort(DataGridView1.Columns(1), System.ComponentModel.ListSortDirection.Ascending)
+
             dr.Close()
             cn.Close()
         Catch ex As Exception
@@ -31,6 +36,8 @@ Public Class usr_invoice
             cn.Close()
         End Try
     End Sub
+
+
 
     Public Sub New()
         InitializeComponent()
@@ -100,6 +107,7 @@ Public Class usr_invoice
         If e.ColumnIndex = DataGridView1.Columns.Count - 1 AndAlso e.RowIndex >= 0 Then
             Dim refNumValue As String = DataGridView1.Rows(e.RowIndex).Cells(5).Value.ToString()
 
+
             Try
                 cn.Open()
                 cm = New MySqlCommand($"SELECT * FROM olsmg_invoice WHERE reference_num='{refNumValue}'", cn)
@@ -150,21 +158,95 @@ Public Class usr_invoice
     End Sub
 
 
+    Private Sub SaveToExcelFilteredByYear(dataGridView As DataGridView, yearPicker As DateTimePicker)
 
 
-    Private Sub cb_generateReport_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_generateReport.SelectedIndexChanged
-        If cb_generateReport.Text = "Monthly" Then
-            Dim exportMonthly As Integer
-            exportMonthly = MsgBox("Do you want to export monthly report?", vbYesNo + vbQuestion, "Export")
-            If exportMonthly = vbYes Then
+    End Sub
 
+    Private Sub cb_generateReport_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_year.SelectedIndexChanged
+        Dim selectedYearName As String = cb_year.SelectedItem.ToString()
+        Dim selectedYear As Integer = DateTime.ParseExact(selectedYearName, "yyyy", CultureInfo.CurrentCulture).Year
+        For Each row As DataGridViewRow In DataGridView1.Rows
+            Dim rowDate As Date = Convert.ToDateTime(row.Cells(1).Value)
+            If rowDate.Year = selectedYear Then
+                row.Visible = True
+            Else
+                row.Visible = False
             End If
-        ElseIf cb_generateReport.Text = "Yearly" Then
-            Dim exportYearly As Integer
-            exportYearly = MsgBox("Do you want to export monthly report?", vbYesNo + vbQuestion, "Export")
-            If exportYearly = vbYes Then
+        Next
 
+    End Sub
+
+    Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs)
+
+    End Sub
+
+
+
+    Private Sub cb_month_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_month.SelectedIndexChanged
+        Dim selectedMonthName As String = cb_month.SelectedItem.ToString()
+        Dim selectedMonthNumber As Integer = DateTime.ParseExact(selectedMonthName, "MMMM", CultureInfo.CurrentCulture).Month
+        For Each row As DataGridViewRow In DataGridView1.Rows
+            Dim rowDate As Date = Convert.ToDateTime(row.Cells(1).Value)
+            If rowDate.Month = selectedMonthNumber Then
+                row.Visible = True
+            Else
+                row.Visible = False
             End If
+
+        Next
+    End Sub
+
+    Private Sub ExportToExcel(ByVal dgv As DataGridView, ByVal fileName As String)
+        Dim excelApp As New Excel.Application()
+        Dim excelWorkBook As Excel.Workbook = excelApp.Workbooks.Add()
+        Dim excelWorkSheet As Excel.Worksheet = CType(excelWorkBook.Worksheets(1), Excel.Worksheet)
+
+        ' Export headers
+        For i As Integer = 0 To dgv.Columns.Count - 2
+            excelWorkSheet.Cells(1, i + 1) = dgv.Columns(i).HeaderText
+        Next
+
+        ' Export data
+        For i As Integer = 0 To dgv.Rows.Count - 1
+            For j As Integer = 0 To dgv.Columns.Count - 2
+                excelWorkSheet.Cells(i + 2, j + 1) = dgv.Rows(i).Cells(j).Value.ToString()
+            Next
+        Next
+
+        excelWorkBook.SaveAs(fileName)
+        excelWorkBook.Close()
+        excelApp.Quit()
+
+        ReleaseObject(excelApp)
+        ReleaseObject(excelWorkBook)
+        ReleaseObject(excelWorkSheet)
+    End Sub
+
+    Private Sub ReleaseObject(ByVal obj As Object)
+        Try
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(obj)
+            obj = Nothing
+        Catch ex As Exception
+            obj = Nothing
+        Finally
+            GC.Collect()
+        End Try
+    End Sub
+
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Save.Click
+        Dim saveFileDialog As New SaveFileDialog()
+        saveFileDialog.Filter = "Excel Files (*.xlsx)|*.xlsx"
+        saveFileDialog.FileName = "ExportedData.xlsx"
+
+        If saveFileDialog.ShowDialog() = DialogResult.OK Then
+            ExportToExcel(DataGridView1, saveFileDialog.FileName)
         End If
     End Sub
+
+    Private Sub DataGridView1_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellValueChanged
+
+    End Sub
+
 End Class

@@ -14,6 +14,7 @@ Public Class usr_recovery
     Private Sub Password_Click(sender As Object, e As EventArgs) Handles Password.Click
         If Password.Text = "Password" Then
             Password.Clear()
+            Password.UseSystemPasswordChar = True
         End If
     End Sub
 
@@ -24,6 +25,14 @@ Public Class usr_recovery
                 Dim form As subForm = DirectCast(parentForm, subForm)
                 form.ChangePanelContent(New usr_connection)
             End If
+        End If
+    End Sub
+
+    Private Sub MetroCheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles MetroCheckBox1.CheckedChanged
+        If MetroCheckBox1.Checked = True Then
+            Password.UseSystemPasswordChar = False
+        Else
+            Password.UseSystemPasswordChar = True
         End If
     End Sub
 End Class

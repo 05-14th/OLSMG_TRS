@@ -28,6 +28,7 @@ Partial Class usr_signin
         Me.userText = New MetroFramework.Controls.MetroTextBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.showPass = New MetroFramework.Controls.MetroCheckBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -44,7 +45,7 @@ Partial Class usr_signin
         'passText
         '
         Me.passText.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.passText.Location = New System.Drawing.Point(15, 256)
+        Me.passText.Location = New System.Drawing.Point(14, 249)
         Me.passText.Name = "passText"
         Me.passText.Size = New System.Drawing.Size(302, 22)
         Me.passText.TabIndex = 9
@@ -82,10 +83,22 @@ Partial Class usr_signin
         Me.PictureBox2.TabIndex = 14
         Me.PictureBox2.TabStop = False
         '
+        'showPass
+        '
+        Me.showPass.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.showPass.AutoSize = True
+        Me.showPass.Location = New System.Drawing.Point(15, 274)
+        Me.showPass.Name = "showPass"
+        Me.showPass.Size = New System.Drawing.Size(105, 15)
+        Me.showPass.TabIndex = 15
+        Me.showPass.Text = "Show Password"
+        Me.showPass.UseVisualStyleBackColor = True
+        '
         'usr_signin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.showPass)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btn_login)
@@ -96,6 +109,7 @@ Partial Class usr_signin
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents btn_login As MetroFramework.Controls.MetroButton
@@ -103,4 +117,5 @@ Partial Class usr_signin
     Friend WithEvents userText As MetroFramework.Controls.MetroTextBox
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents showPass As MetroFramework.Controls.MetroCheckBox
 End Class
