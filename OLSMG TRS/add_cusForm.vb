@@ -124,4 +124,17 @@ Public Class add_cusForm
     Private Sub c_mi_Click(sender As Object, e As EventArgs) Handles c_mi.Click
 
     End Sub
+
+    Private Sub c_cn_Click(sender As Object, e As EventArgs) Handles c_cn.Click
+
+    End Sub
+
+
+    Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles c_cn.KeyPress
+
+        If Not Char.IsDigit(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
+
+            e.Handled = True
+        End If
+    End Sub
 End Class

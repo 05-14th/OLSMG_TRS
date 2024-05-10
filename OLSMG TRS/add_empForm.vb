@@ -79,7 +79,7 @@ Public Class add_empForm
     Private Sub DeleteData()
         dr.Close()
         Dim empId As Integer
-        Dim getEmpIdCommand As New MySqlCommand($"SELECT emp_id FROM olsmg_employee WHERE emp_lname = '{Lname}' AND emp_fname = '{Fname}' AND emp_mi = '{Minit}'", cn)
+        Dim getEmpIdCommand As New MySqlCommand($"c", cn)
         empId = Convert.ToInt64(getEmpIdCommand.ExecuteScalar())
 
         Dim query As String = "DELETE FROM olsmg_employee WHERE emp_id=@conditionValue"
@@ -109,6 +109,19 @@ Public Class add_empForm
             DeleteData()
         Else
             CloseForm()
+        End If
+    End Sub
+
+    Private Sub empCN_Click(sender As Object, e As EventArgs) Handles empCN.Click
+
+    End Sub
+
+
+    Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles empCN.KeyPress
+
+        If Not Char.IsDigit(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
+
+            e.Handled = True
         End If
     End Sub
 End Class

@@ -28,8 +28,18 @@ Public Class add_userForm
     Private Sub cnumText_Click(sender As Object, e As EventArgs) Handles cnumText.Click
         If cnumText.Text = "Contact Number" Then
             cnumText.Text = ""
+
         End If
     End Sub
+
+    Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cnumText.KeyPress
+
+        If Not Char.IsDigit(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
+
+            e.Handled = True
+        End If
+    End Sub
+
 
     Private Sub passText_Click(sender As Object, e As EventArgs) Handles passText.Click
         If passText.Text = "Password" Then

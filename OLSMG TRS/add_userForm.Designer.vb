@@ -118,6 +118,7 @@ Partial Class add_userForm
         '
         Me.cnumText.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cnumText.Location = New System.Drawing.Point(20, 143)
+        Me.cnumText.MaxLength = 11
         Me.cnumText.Name = "cnumText"
         Me.cnumText.Size = New System.Drawing.Size(300, 23)
         Me.cnumText.TabIndex = 12

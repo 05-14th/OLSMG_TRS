@@ -103,10 +103,10 @@ Public Class add_invoiceForm
     Sub Update()
         dr.Close()
         Dim invId As Integer
-        Dim getCusIdCommand As New MySqlCommand($"SELECT invoice_id FROM olsmg_invoice WHERE cus_name = '{cusName}' AND product_name_ref = '{productName}' AND total_amount = '{totalAmount}'", cn)
+        Dim getCusIdCommand As New MySqlCommand($"SELECT invoice_id FROM olsmg_invoice WHERE reference_num='{invRefNum.Text}'", cn)
         invId = Convert.ToInt64(getCusIdCommand.ExecuteScalar())
 
-        Dim query As String = "UPDATE olsmg_invoice SET total_amount=@ta, cus_name=@cn, employee_name=@en, product_name_ref=@pnr, reference_num=@rn WHERE invoice_id=@conditionValue"
+        Dim query As String = "UPDATE olsmg_invoice SET total_amount=@ta, cus_name=@cn, employee_name=@en, reference_num=@rn WHERE invoice_id=@conditionValue"
         Dim command As New MySqlCommand(query, cn)
         command.Parameters.AddWithValue("@ta", invTotalAmount.Text)
         command.Parameters.AddWithValue("@cn", invCusName.Text)

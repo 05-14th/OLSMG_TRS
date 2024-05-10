@@ -236,13 +236,18 @@ Public Class usr_invoice
 
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Save.Click
-        Dim saveFileDialog As New SaveFileDialog()
-        saveFileDialog.Filter = "Excel Files (*.xlsx)|*.xlsx"
-        saveFileDialog.FileName = "ExportedData.xlsx"
+        Try
+            Dim saveFileDialog As New SaveFileDialog()
+            saveFileDialog.Filter = "Excel Files (*.xlsx)|*.xlsx"
+            saveFileDialog.FileName = "ExportedData.xlsx"
 
-        If saveFileDialog.ShowDialog() = DialogResult.OK Then
-            ExportToExcel(DataGridView1, saveFileDialog.FileName)
-        End If
+            If saveFileDialog.ShowDialog() = DialogResult.OK Then
+                ExportToExcel(DataGridView1, saveFileDialog.FileName)
+                MsgBox("Excel exported successfully", vbInformation, "Success")
+            End If
+        Catch ex As Exception
+            MsgBox("Unknown Error: " & ex.Message, vbCritical, "Failed")
+        End Try
     End Sub
 
     Private Sub DataGridView1_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellValueChanged
